@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özgeçmiş | Serra Nur Bektaş</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Şehrim sayfasıyla birebir aynı Ada Çayı (Sage Green) Paleti */
+        :root {
+            --ana-yesil: #84a59d;    
+            --koyu-yesil: #5a7d75;   
+            --arka-plan: #f8f9fa;    
+            --vurgu: #f5cac3;
+            --yazi: #3d405b;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: var(--arka-plan);
+            color: var(--yazi);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+        }
+
+        /* Navbar: Şehrim sayfasıyla aynı */
+        .navbar {
+            background-color: var(--koyu-yesil) !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Hero Section (Profil Başlığı) */
+        .hero-header {
+            background-color: #ffffff;
+            padding: 80px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid var(--ana-yesil);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        /* CV Kartları */
+        .cv-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--ana-yesil);
+        }
+
+        .section-title {
+            color: var(--koyu-yesil);
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-badge {
+            background-color: var(--arka-plan);
+            color: var(--koyu-yesil);
+            padding: 8px 15px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 5px;
+            border: 1px solid var(--ana-yesil);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: var(--koyu-yesil);
+            color: white;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">SNB</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">Anasayfa</a>
+                <a class="nav-link active" href="ozgecmis.html">Özgeçmiş</a>
+                <a class="nav-link" href="sehrim.html">Şehrim</a>
+                <a class="nav-link" href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-header text-center">
+        <div class="container">
+            <img src="img/profil.jpg" class="profile-img mb-4" alt="Serra Nur">
+            <h1 class="display-4 fw-bold" style="color: var(--koyu-yesil);">Serra Nur Bektaş</h1>
+            <p class="lead fw-bold text-muted">Bilgisayar Mühendisliği Öğrencisi</p>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="section-title">Eğitim Bilgileri</h2>
+                <div class="cv-card">
+                    <h5 class="fw-bold mb-1">Sakarya Üniversitesi</h5>
+                    <span class="text-muted d-block mb-3">Bilgisayar Mühendisliği | 2025 - Devam Ediyor</span>
+                    <p>Mühendislik temelleri, veri yapıları ve web teknolojileri üzerine yoğunlaşarak profesyonel gelişimimi sürdürüyorum.</p>
+                </div>
+
+                <h2 class="section-title mt-5">Hakkımda</h2>
+                <div class="cv-card">
+                    <p>Teknolojiye ve yazılıma olan merakım, mühendislik eğitimimle birleşerek beni sürekli öğrenmeye teşvik ediyor. Modern web teknolojileri, temiz kod prensipleri ve kullanıcı odaklı tasarım süreçleri ilgi alanlarımın başında geliyor.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <h2 class="section-title">Yetenekler</h2>
+                <div class="cv-card">
+                    <div class="d-flex flex-wrap">
+                        <span class="skill-badge">HTML5</span>
+                        <span class="skill-badge">CSS3</span>
+                        <span class="skill-badge">Bootstrap 5</span>
+                        <span class="skill-badge">PHP</span>
+                        <span class="skill-badge">C#</span>
+                        <span class="skill-badge">Git / GitHub</span>
+                    </div>
+                </div>
+
+                <h2 class="section-title mt-5">İletişim</h2>
+                <div class="cv-card">
+                    <p class="mb-2"><strong>E-posta:</strong> serra.bektas@email.com</p>
+                    <p class="mb-0"><strong>Konum:</strong> Sakarya / Türkiye</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <h5 class="fw-bold mb-3">Serra Nur Bektaş</h5>
+            <p class="mb-0 opacity-75">Web Teknolojileri Ödevi | Bilgisayar Mühendisliği | 2026</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
