@@ -7,46 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* Şehrim sayfasıyla birebir aynı Ada Çayı (Sage Green) Paleti */
         :root {
-            --ana-yesil: #84a59d;    
-            --koyu-yesil: #5a7d75;   
-            --arka-plan: #f8f9fa;    
-            --vurgu: #f5cac3;
-            --yazi: #3d405b;
+            --ana: #84a59d; --koyu: #5a7d75; --arka: #f8f9fa; --yazi: #3d405b;
         }
 
-        html, body {
-            overflow-x: hidden;
+        body { background-color: var(--arka); font-family: 'Poppins', sans-serif; color: var(--yazi); }
+        
+        .navbar { background-color: var(--koyu) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+        /* Profil Header */
+        .header-bg {
+            background: linear-gradient(135deg, var(--koyu) 0%, var(--ana) 100%);
+            height: 200px;
             width: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: var(--arka-plan);
-            color: var(--yazi);
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.8;
         }
 
-        /* Navbar: Şehrim sayfasıyla aynı */
-        .navbar {
-            background-color: var(--koyu-yesil) !important;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Hero Section (Profil Başlığı) */
-        .hero-header {
-            background-color: #ffffff;
-            padding: 80px 0;
-            border-bottom: 1px solid #eee;
-        }
+        .profile-container { margin-top: -100px; }
 
         .profile-img {
-            width: 220px;
-            height: 220px;
+            width: 180px; height: 180px;
             object-fit: cover;
             border-radius: 50%;
-            border: 8px solid var(--ana-yesil);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 8px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         /* CV Kartları */
@@ -54,37 +37,38 @@
             background: white;
             border-radius: 20px;
             padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            border-left: 5px solid var(--ana-yesil);
+            margin-bottom: 25px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: 0.3s;
         }
 
         .section-title {
-            color: var(--koyu-yesil);
+            color: var(--koyu);
             font-weight: 800;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            border-bottom: 3px solid var(--ana);
+            display: inline-block;
+            margin-bottom: 25px;
+            padding-bottom: 5px;
         }
 
+        /* Yetenekler */
         .skill-badge {
-            background-color: var(--arka-plan);
-            color: var(--koyu-yesil);
+            background: var(--arka);
+            color: var(--koyu);
+            border: 1px solid var(--ana);
             padding: 8px 15px;
             border-radius: 50px;
             display: inline-block;
             margin: 5px;
-            border: 1px solid var(--ana-yesil);
             font-size: 0.9rem;
             font-weight: 600;
         }
 
-        footer {
-            background-color: var(--koyu-yesil);
-            color: white;
-            padding: 50px 0;
-            margin-top: 50px;
-        }
+        .progress { height: 8px; border-radius: 10px; margin-bottom: 20px; background: #eee; }
+        .progress-bar { background-color: var(--ana); }
+
+        footer { background-color: var(--koyu); color: white; padding: 30px 0; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -101,59 +85,34 @@
         </div>
     </nav>
 
-    <header class="hero-header text-center">
-        <div class="container">
-            <img src="img/profil.jpg" class="profile-img mb-4" alt="Serra Nur">
-            <h1 class="display-4 fw-bold" style="color: var(--koyu-yesil);">Serra Nur Bektaş</h1>
-            <p class="lead fw-bold text-muted">Bilgisayar Mühendisliği Öğrencisi</p>
+    <div class="header-bg"></div>
+
+    <div class="container profile-container text-center mb-5">
+        <img src="img/profil.jpg" class="profile-img mb-3" alt="Serra Nur Bektaş">
+        <h1 class="fw-bold">Serra Nur Bektaş</h1>
+        <p class="lead text-muted">Sakarya Üniversitesi |Bilgisayar Mühendisliği Öğrencisi</p>
+        <div class="d-flex justify-content-center gap-2">
+            <span class="skill-badge">C++</span>
+            <span class="skill-badge">C#</span>
+            <span class="skill-badge">Python</span>
         </div>
-    </header>
+    </div>
 
-    <main class="container py-5">
+    <main class="container">
         <div class="row">
-            <div class="col-lg-8">
-                <h2 class="section-title">Eğitim Bilgileri</h2>
+            <div class="col-lg-7">
                 <div class="cv-card">
-                    <h5 class="fw-bold mb-1">Sakarya Üniversitesi</h5>
-                    <span class="text-muted d-block mb-3">Bilgisayar Mühendisliği | 2025 - Devam Ediyor</span>
-                    <p>Mühendislik temelleri, veri yapıları ve web teknolojileri üzerine yoğunlaşarak profesyonel gelişimimi sürdürüyorum.</p>
-                </div>
-
-                <h2 class="section-title mt-5">Hakkımda</h2>
-                <div class="cv-card">
-                    <p>Teknolojiye ve yazılıma olan merakım, mühendislik eğitimimle birleşerek beni sürekli öğrenmeye teşvik ediyor. Modern web teknolojileri, temiz kod prensipleri ve kullanıcı odaklı tasarım süreçleri ilgi alanlarımın başında geliyor.</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <h2 class="section-title">Yetenekler</h2>
-                <div class="cv-card">
-                    <div class="d-flex flex-wrap">
-                        <span class="skill-badge">HTML5</span>
-                        <span class="skill-badge">CSS3</span>
-                        <span class="skill-badge">Bootstrap 5</span>
-                        <span class="skill-badge">PHP</span>
-                        <span class="skill-badge">C#</span>
-                        <span class="skill-badge">Git / GitHub</span>
+                    <h3 class="section-title">Eğitim</h3>
+                    <div class="mb-4">
+                        <h5 class="fw-bold mb-1">Bilgisayar Mühendisliği</h5>
+                        <p class="text-muted small mb-2">Sakarya Üniversitesi | 2025 - Devam</p>
+                        <p>Algoritmalar, Veri Yapıları ve Nesne Yönelimli Programlama üzerine yoğunlaşarak mühendislik temellerimi oluşturuyorum.</p>
                     </div>
                 </div>
 
-                <h2 class="section-title mt-5">İletişim</h2>
                 <div class="cv-card">
-                    <p class="mb-2"><strong>E-posta:</strong> serra.bektas@email.com</p>
-                    <p class="mb-0"><strong>Konum:</strong> Sakarya / Türkiye</p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="text-center">
-        <div class="container">
-            <h5 class="fw-bold mb-3">Serra Nur Bektaş</h5>
-            <p class="mb-0 opacity-75">Web Teknolojileri Ödevi | Bilgisayar Mühendisliği | 2026</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+                    <h3 class="section-title">Uzmanlık & Eğitimler</h3>
+                    <div class="mb-4">
+                        <h5 class="fw-bold mb-1">Siber Güvenlik ve Sızma Testleri</h5>
+                        <p class="text-muted small mb-2">Nisan 2026</p>
+                        <p>Kali Linux ortamında ağ tarama, zafiyet analizi ve penetrasyon testleri üzerine uygulam

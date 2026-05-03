@@ -3,69 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benim Web Projem</title>
-    
+    <title>Hoş Geldiniz | Serra Nur Bektaş</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ana-yesil: #84a59d;    
+            --koyu-yesil: #5a7d75;   
+            --arka-plan: #f8f9fa;    
+            --yazi: #3d405b;
+        }
+
+        body {
+            background-color: var(--arka-plan);
+            font-family: 'Poppins', sans-serif;
+            color: var(--yazi);
+        }
+
+        .navbar { background-color: var(--koyu-yesil) !important; }
+
+        .hero-section {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .btn-custom {
+            background-color: var(--ana-yesil);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 600;
+            display: inline-block;
+            margin: 10px;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--koyu-yesil);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        .feature-card:hover { transform: translateY(-10px); }
+    </style>
 </head>
 <body>
-    {
-    background-color: #f4f7f6; /* Hafif gri-mavi bir arka plan */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">WebProje</a>
-            <div class="navbar-nav">
-                <a class="nav-link active" href="index.php">Hakkında</a>
-                <a class="nav-link" href="ozgecmis.php">Özgeçmiş</a>
-                <a class="nav-link" href="sehrim.php">Şehrim</a>
-                <a class="nav-link" href="iletisim.php">İletişim</a>
-                <a class="nav-link" href="login.php">Giriş Yap</a>
+            <a class="navbar-brand fw-bold" href="index.html">SNB</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link active" href="index.html">Anasayfa</a>
+                <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
+                <a class="nav-link" href="sehrim.html">Şehrim</a>
+                <a class="nav-link" href="iletisim.html">İletişim</a>
             </div>
         </div>
     </nav>
 
-    <main class="container mt-5">
-        <header>
-            <h1 class="text-primary">Hakkımda</h1>
-        </header>
-
-        <section class="row mt-4">
-            <div class="col-md-8">
-                <p>Merhaba, ben [Adın Soyadın]. Bu siteyi Web Teknolojileri dersi için hazırlıyorum.</p>
-                <h3>Hobilerim</h3>
-                <ul>
-                    <li>Kod yazmayı öğrenmek</li>
-                    <li>Yeni şehirler keşfetmek</li>
-                </ul>
-            </div>
-            
-            <div class="col-md-4">
-                <img src="img/profil.jpg" class="img-fluid rounded" alt="Profil Resmim">
-            </div>
-        </section>
-    </main>
-
-    <footer class="text-center py-4 border-top mt-5">
-        <p>2026 - Web Teknolojileri Ödevi</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-
-
-
-<footer class="bg-light text-center py-4 mt-5 border-top">
+    <header class="hero-section text-center">
         <div class="container">
-            <p>&copy; 2026 - [Adın Soyadın] - Sakarya Üniversitesi</p>
+            <h1 class="display-2 fw-bold" style="color: var(--koyu-yesil);">Merhaba, Ben Serra Nur</h1>
+            <p class="lead mb-5">Geleceğin Bilgisayar Mühendisi & Web Geliştiricisi</p>
+            <div>
+                <a href="ozgecmis.html" class="btn-custom">Beni Tanıyın</a>
+                <a href="sehrim.html" class="btn-custom" style="background-color: transparent; border: 2px solid var(--ana-yesil); color: var(--ana-yesil);">Giresun'u Keşfedin</a>
+            </div>
         </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h3>Kişisel Portfolyo</h3>
+                        <p>Eğitim hayatım, projelerim ve yetkinliklerim hakkında detaylı bilgiye buradan ulaşabilirsiniz.</p>
+                        <a href="ozgecmis.html" class="text-decoration-none fw-bold" style="color: var(--ana-yesil);">Devamını Gör &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h3>Şehir Rehberi</h3>
+                        <p>Doğduğum ve büyüdüğüm şehir Giresun'un eşsiz güzelliklerini ve kültürünü keşfedin.</p>
+                        <a href="sehrim.html" class="text-decoration-none fw-bold" style="color: var(--ana-yesil);">Şehri Keşfet &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-4 bg-white border-top">
+        <p class="mb-0">&copy; 2026 Serra Nur Bektaş | Tüm Hakları Saklıdır.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

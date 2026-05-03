@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | Web Ödevim</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ana: #84a59d; --koyu: #5a7d75; --arka: #f8f9fa; --yazi: #3d405b;
+        }
+
+        body {
+            background-color: var(--arka);
+            font-family: 'Poppins', sans-serif;
+            color: var(--yazi);
+        }
+
+        .navbar { background-color: var(--koyu) !important; }
+
+        .contact-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border-top: 8px solid var(--ana);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .form-control:focus {
+            border-color: var(--ana);
+            box-shadow: 0 0 0 0.25rem rgba(132, 165, 157, 0.25);
+        }
+
+        .btn-submit {
+            background-color: var(--ana);
+            color: white;
+            border-radius: 50px;
+            padding: 12px 40px;
+            border: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--koyu);
+            transform: translateY(-2px);
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            color: var(--koyu);
+            margin-right: 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover { color: var(--ana); }
+
+        footer { background-color: var(--koyu); color: white; padding: 40px 0; margin-top: 100px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">WebProje</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.html">Anasayfa</a>
+                <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
+                <a class="nav-link" href="sehrim.html">Şehrim</a>
+                <a class="nav-link active" href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <h1 class="display-5 fw-bold mb-4">Hoşgeldiniz! İletişim Bilgilerine Aşağıdan ulaşabilirsiniz </h1>
+                <p class="lead mb-5 text-muted">Projelerimi görmek, onları detaylıca incelemek ve projelerim hakkındaki değerli düşünce ve katkılarınızdan beni haberdar etmek için aşağıdaki iletişim bilgilerini kullanabilirsiniz.  </p>
+                
+                <div class="mb-4">
+                    <h5 class="fw-bold">Konum</h5>
+                    <p>İstanbul, Türkiye</p>
+                </div>
+                <div class="mb-4">
+                    <h5 class="fw-bold">E-Posta</h5>
+                    <p>serranurr.bekk@gmail.com</p>
+                </div>
+
+                <div class="mt-5">
+                    <h5 class="fw-bold mb-3">Sosyal Medya</h5>
+                    <a href="#" class="social-icon">LinkedIn</a>
+                    <a href="#" class="social-icon">GitHub</a>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="contact-card">
+                    <form action="#" method="POST">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-600">Adınız</label>
+                                <input type="text" class="form-control" placeholder="Ad" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-600">Soyadınız</label>
+                                <input type="text" class="form-control" placeholder="Soyad" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-600">E-Posta Adresiniz</label>
+                            <input type="email" class="form-control" placeholder="@mail.com" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-600">Mesajınız</label>
+                            <textarea class="form-control" rows="5" placeholder="Mesajınızı buraya yazın..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit w-100">Mesajı Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">Serra Nur Bektaş | Web Proje Ödevi &copy; 2026</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
