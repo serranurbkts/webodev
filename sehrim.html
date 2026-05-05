@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giresun | Web Ödevim</title>
+    <title>Giresun | Serra Nur Bektaş</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
@@ -26,7 +26,7 @@
             line-height: 1.8;
         }
 
-        /* Navbar: Tüm sayfalarla birebir aynı */
+        /* Navbar */
         .navbar {
             background-color: var(--koyu-yesil) !important;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
@@ -41,10 +41,10 @@
 
         .hero-img {
             width: 100%;
-    height: 450px !important; /* Yüksekliği manuel artırdık */
-    object-fit: cover; /* Resmin bozulmadan kutuyu doldurmasını sağlar */
-    border-radius: 30px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            height: 450px !important; 
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
         /* Mekan Kartları */
@@ -94,17 +94,19 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">WebProje</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand fw-bold" href="index.html">SNB</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#serraNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Anasayfa</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="sehrim.html">Şehrim</a></li>
-                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
-                </ul>
+            
+            <div class="collapse navbar-collapse" id="serraNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="index.html">Anasayfa</a>
+                    <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
+                    <a class="nav-link active" href="sehrim.html">Şehrim</a>
+                    <a class="nav-link" href="mirasimiz.html">Mirasımız</a>
+                    <a class="nav-link" href="iletisim.html">İletişim</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -116,12 +118,12 @@
                     <img src="img/giresunn.jpg" class="hero-img" alt="Giresun">
                 </div>
                 <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold" style="color: var(--koyu-yesil);">Doğu Karadenizin Saklı Hazinesi : <b><i>GİRESUN</i></b></h1>
+                    <h1 class="display-4 fw-bold" style="color: var(--koyu-yesil);">Doğu Karadeniz'in Saklı Hazinesi: <b><i>GİRESUN</i></b></h1>
                     
-                    <p class="lead fw-bold text-muted">Giresun'un Genel Kimliği ve Tarihi Dokusu</p>
-                    <p>Doğu Karadeniz’in kalbinde yer alan Giresun, antik çağdaki ismi "Kerasus" ile dünya literatüründe kirazın anavatanı olarak kabul edilir. Tarihi boyunca Amazon efsanelerinden Milli Mücadele kahramanlıklarına kadar uzanan derin bir kültürel mirasa ev sahipliği yapan şehir, Kurtuluş Savaşı sırasında kendi imkanlarıyla iki gönüllü alay çıkaran tek il olma gururunu taşır. Şehrin hemen açıklarında yer alan ve Karadeniz'in üzerinde yaşanabilir tek adası olan Giresun Adası, mitolojik geçmişi ve arkeolojik kalıntılarıyla bu tarihi dokunun en gizemli parçasıdır.</p> 
-                    <p class="lead fw-bold text-muted">Doğal Zenginlikler ve Ekonomik Değerler</p>
-                    <p>Doğanın tüm renklerini barındıran Giresun, dünyanın en kaliteli ve yağ oranı yüksek fındığının üretim merkezi olarak küresel bir ekonomik değere sahiptir. Şehir, sadece tarımıyla değil, "Karadeniz'in Nazar Boncuğu" olarak bilinen turkuaz renkli Mavi Göl ve bembeyaz travertenleriyle büyüleyen Kuzalan Şelalesi gibi doğa harikalarıyla da dikkat çeker. Yaklaşık 1500 rakımlı Kulakkaya ve Kümbet gibi yaylaları ise, geleneksel yayla kültürünü ve Karadeniz’in tertemiz havasını arayanlar için eşsiz birer huzur noktasıdır.</p>
+                    <p class="lead fw-bold text-muted">Genel Kimlik ve Tarihi Doku</p>
+                    <p>Doğu Karadeniz’in kalbinde yer alan Giresun, antik çağdaki ismi "Kerasus" ile dünya literatüründe kirazın anavatanı olarak kabul edilir. Kurtuluş Savaşı sırasında kendi imkanlarıyla iki gönüllü alay çıkaran tek il olma gururunu taşır.</p> 
+                    <p class="lead fw-bold text-muted">Doğal Zenginlikler</p>
+                    <p>Dünyanın en kaliteli fındığının üretim merkezi olan şehir, "Karadeniz'in Nazar Boncuğu" Mavi Göl ve Kuzalan Şelalesi gibi doğa harikalarıyla da dikkat çeker.</p>
                 </div>
             </div>
         </div>
@@ -135,68 +137,45 @@
                     <img src="img/kale.jpg" class="place-img" alt="Giresun Kalesi">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 place-content">
                 <h3><strong>Giresun Kalesi</strong></h3>
-                <p>Giresun Kalesi, kenti ikiye bölen yarımadanın zirvesinde, M.Ö. 2. yüzyılda Pontus Kralı I. Pharnakes tarafından inşa ettirilmiş stratejik bir savunma yapısıdır. İç kale ve dış surlardan oluşan bu antik kale, günümüzde Milli Mücadele kahramanı Topal Osman Ağa’nın anıt mezarına ev sahipliği yaparak şehrin manevi değerini de sırtlamaktadır. Şehri 360 derecelik panoramik bir açıyla izleme imkanı sunan bu bölge, Helenistik dönemden Osmanlı'ya kadar uzanan katmanlı tarihiyle Giresun'un en köklü mirasıdır.</p>
+                <p>Giresun Kalesi, kenti ikiye bölen yarımadanın zirvesinde, M.Ö. 2. yüzyılda Pontus Kralı I. Pharnakes tarafından inşa ettirilmiş stratejik bir savunma yapısıdır. Günümüzde Milli Mücadele kahramanı Topal Osman Ağa’nın anıt mezarına ev sahipliği yapar.</p>
             </div>
         </div>
+
         <div class="row place-row g-5 flex-md-row-reverse">
             <div class="col-md-6">
                 <div class="place-img-container">
                     <img src="img/ada.jpg" class="place-img" alt="Giresun Adası">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 place-content">
                 <h3><strong>Giresun Adası</strong></h3>
-                <p>Kıyıdan yaklaşık 1,6 deniz mili uzaklıkta bulunan Giresun Adası, Karadeniz’in üzerinde yerleşim izleri taşıyan ve bitki örtüsüne sahip tek adası olmasıyla benzersiz bir coğrafi değerdir. Mitolojide <strong>Amazon kadınlarının</strong> üssü olarak bilinen ve Argonotların efsanelerinde kilit bir durak olan ada, Bizans dönemine ait manastır kalıntıları ve surlarıyla tarihin derin katmanlarını barındırır. Her yıl düzenlenen Aksu Şenlikleri'nin merkezinde yer alan bu ada, hem ekolojik bir sit alanı hem de Giresun'un mistik ruhunu temsil eden bir kültür durağıdır.</p>
+                <p>Karadeniz’in üzerinde yerleşim izleri taşıyan tek adasıdır. Mitolojide Amazon kadınlarının üssü olarak bilinen ada, hem ekolojik bir sit alanı hem de Giresun'un mistik ruhunu temsil eden bir kültür durağıdır.</p>
             </div>
         </div>
 
-    <div class="row place-row g-5">
-            <div class="col-md-6">
-                <div class="place-img-container">
-                    <img src="img/kuzualan.jpg" class="place-img" alt="Kuzalan Şelalesi">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <h3><strong>Kuzalan Şelalesi</strong></h3>
-                <p>Gür ladin ormanlarının arasından süzülerek dökülen Kuzalan Şelalesi, Giresun'un hırçın ama bir o kadar da büyüleyici doğasının en saf halini temsil eder. Sadece görsel bir şölen sunmakla kalmayan bu şelale, çevresindeki zengin bitki örtüsü ve karstik kayaç yapısıyla bölgenin ekolojik dengesinin en önemli parçalarından biridir.</p>
-            </div>
-        </div>
-
-        <div class="row place-row g-5 flex-md-row-reverse">
+        <div class="row place-row g-5">
             <div class="col-md-6">
                 <div class="place-img-container">
                     <img src="img/mavigol.jpg" class="place-img" alt="Mavi Göl">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 place-content">
                 <h3><strong>Mavi Göl</strong></h3>
-                <p>Kuzalan Tabiat Parkı sınırları içinde bulunan Mavi Göl, sodalı suyun kireç taşlarıyla birleşmesi sonucu oluşan cam göbeği rengiyle büyüleyici bir görünüme sahiptir. Özellikle güneşli günlerde Karadeniz’in yoğun yeşilliği arasında parlayan bu "nazar boncuğu", su kimyasının ve jeolojik yapının oluşturduğu nadir bir doğa harikasıdır.</p>
-            </div>
-        </div>
-
-        <div class="row place-row g-5 ">
-            <div class="col-md-6">
-                <div class="place-img-container">
-                    <img src="img/traverten.jpg" class="place-img" alt="Göksu Travertenleri">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <h3><strong>Göksu Travertenleri</strong></h3>
-                <p>Dereli ilçesinde yer alan Göksu Travertenleri, mineralli suların oluşturduğu bembeyaz terasları ve turkuaz havuzlarıyla "Karadeniz'in Pamukkale'si" olarak adlandırılmaktadır. Mineralli suyun debisi ve kalsiyum karbonat yapısının yarattığı bu görsel zenginlik, son yıllarda yapılan çevre düzenlemeleriyle şehrin en önemli turizm destinasyonlarından biri haline gelmiştir.</p>
+                <p>Kuzalan Tabiat Parkı sınırları içinde bulunan Mavi Göl, sodalı suyun kireç taşlarıyla birleşmesi sonucu oluşan cam göbeği rengiyle büyüleyici bir görünüme sahiptir.</p>
             </div>
         </div>
 
         <div class="row place-row g-5 flex-md-row-reverse">
             <div class="col-md-6">
                 <div class="place-img-container">
-                    <img src="img/kulakkaya_yaylası.jpg" class="place-img" alt="Kulakkaya Yaylası">
+                    <img src="img/traverten.jpg" class="place-img" alt="Göksu Travertenleri">
                 </div>
             </div>
-            <div class="col-md-6">
-                <h3><strong>Kulakkaya Yaylası</strong></h3>
-                <p>Yaklaşık 1500 metre rakımda yer alan Kulakkaya Yaylası, geniş düzlükleri ve geleneksel yayla mimarisiyle Karadeniz kültürünün yaşayan bir örneğidir. Tarihi taş köprüleri ve tertemiz havasıyla doğallığını korumayı başarmış olan bu bölge, doğa yürüyüşü ve fotoğrafçılık meraklıları için bölgenin en değerli açık alanlarından biri olarak kabul edilir.</p>
+            <div class="col-md-6 place-content">
+                <h3><strong>Göksu Travertenleri</strong></h3>
+                <p>Mineralli suların oluşturduğu bembeyaz terasları ve turkuaz havuzlarıyla "Karadeniz'in Pamukkale'si" olarak adlandırılmaktadır.</p>
             </div>
         </div>
 
