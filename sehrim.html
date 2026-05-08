@@ -3,90 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giresun | Serra Nur Bektaş</title>
+    <title>Giresun | Gezilmesi Gereken Yerler</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ana-yesil: #84a59d;    
-            --koyu-yesil: #5a7d75;   
-            --arka-plan: #f8f9fa;    
-            --vurgu: #f5cac3;
+            --ana-yesil: #2d5a27; /* Mirasımız sayfasıyla aynı koyu yeşil */
             --yazi: #3d405b;
+            --arka-plan: #f8f9fa;
         }
 
-        html, body {
-            overflow-x: hidden;
-            width: 100%;
-            margin: 0;
-            padding: 0;
+        body {
             background-color: var(--arka-plan);
             color: var(--yazi);
             font-family: 'Poppins', sans-serif;
             line-height: 1.8;
         }
 
-        /* Navbar */
         .navbar {
-            background-color: var(--koyu-yesil) !important;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            background-color: #212529 !important;
+            border-bottom: 4px solid var(--ana-yesil);
         }
 
-        /* Hero Section */
         .hero-header {
             background-color: #ffffff;
             padding: 80px 0;
             border-bottom: 1px solid #eee;
+            margin-bottom: 50px;
+        }
+
+        .header-accent {
+            height: 3px;
+            width: 60px;
+            background-color: var(--ana-yesil);
+            margin-bottom: 15px;
         }
 
         .hero-img {
             width: 100%;
             height: 450px !important; 
             object-fit: cover;
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        /* Mekan Kartları */
         .place-row {
-            margin-bottom: 80px;
+            background: #fff;
+            padding: 40px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 40px;
             align-items: center;
         }
 
-        .place-img-container {
+        .place-img-container img {
             width: 100%;
-            overflow: hidden;
-            border-radius: 25px;
-            border: 8px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-
-        .place-img-container:hover { transform: scale(1.02); }
-
-        .place-img {
-            width: 100% !important;
             height: 380px !important;
             object-fit: cover;
-            display: block;
+            border-radius: 6px;
         }
 
         .place-content h3 {
-            color: var(--koyu-yesil);
+            color: var(--ana-yesil);
             font-weight: 700;
-            border-left: 5px solid var(--vurgu);
-            padding-left: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .text-muted-bold {
+            font-weight: 800;
+            color: var(--ana-yesil);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
         }
 
         footer {
-            background-color: var(--koyu-yesil);
+            background-color: #212529;
             color: white;
             padding: 40px 0;
-            margin-top: 50px;
-        }
-
-        @media (max-width: 768px) {
-            .place-img { height: 250px !important; }
+            border-top: 5px solid var(--ana-yesil);
         }
     </style>
 </head>
@@ -94,11 +90,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">SNB</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#serraNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
+            <a class="navbar-brand fw-bold" href="index.html">Kişisel Web Sitesi</a>
             <div class="collapse navbar-collapse" id="serraNav">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link" href="index.html">Anasayfa</a>
@@ -110,81 +102,131 @@
             </div>
         </div>
     </nav>
-
-    <header class="hero-header">
+<img src="img/yaylaremi.jpg" alt="Giresun Manzarası" height="150" width="1500"><br><br>
+    
+    <header class="hero-text-area">
         <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <img src="img/giresunn.jpg" class="hero-img" alt="Giresun">
-                </div>
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold" style="color: var(--koyu-yesil);">Doğu Karadeniz'in Saklı Hazinesi: <b><i>GİRESUN</i></b></h1>
-                    
-                    <p class="lead fw-bold text-muted">Genel Kimlik ve Tarihi Doku</p>
-                    <p>Doğu Karadeniz’in kalbinde yer alan Giresun, antik çağdaki ismi "Kerasus" ile dünya literatüründe kirazın anavatanı olarak kabul edilir. Kurtuluş Savaşı sırasında kendi imkanlarıyla iki gönüllü alay çıkaran tek il olma gururunu taşır.</p> 
-                    <p class="lead fw-bold text-muted">Doğal Zenginlikler</p>
-                    <p>Dünyanın en kaliteli fındığının üretim merkezi olan şehir, "Karadeniz'in Nazar Boncuğu" Mavi Göl ve Kuzalan Şelalesi gibi doğa harikalarıyla da dikkat çeker.</p>
-                </div>
-            </div>
+            <div class="header-accent"></div>
+            <h1 class="display-3 fw-bold" style="color: #212529;">Karadeniz'in Saklı Hazinesi : GİRESUN</h1>
+            <p><b>
+               Giresun’u keşfetmek; sadece bir şehri gezmek değil, Karadeniz’in en hırçın dalgalarıyla en sakin yeşilinin buluştuğu bir efsaneye tanıklık etmektir. Burası, antik çağlarda 'kirazın dünyaya yayıldığı topraklar' olarak tarihe ismini kazımış, mitolojide Amazon kadınlarının çığlıklarını, Milli Mücadele’de ise sarsılmaz bir halkın iradesini sırtlanmış bir şehirdir. Gökyüzünün turkuazını sodalı sularında saklayan Mavi Göl’den, sislerin üzerinde yüzen kadim yaylalarına kadar Giresun; her köşesinde size 'burada hayat var' dedirten bir deneyim sunar. Eğer aradığınız sadece bir rota değil, her adımda size yeni bir hikaye fısıldayan bir ruhsa; Karadeniz’in bu saklı hazinesi sizi bekliyor.
+            </b></p><br><br>
         </div>
     </header>
-
-    <main class="container py-5">
+    <main class="container">
         
-        <div class="row place-row g-5">
+        <div class="row place-row">
             <div class="col-md-6">
                 <div class="place-img-container">
-                    <img src="img/kale.jpg" class="place-img" alt="Giresun Kalesi">
+                    <img src="img/kale.jpg" alt="Giresun Kalesi">
                 </div>
             </div>
-            <div class="col-md-6 place-content">
+            <div class="col-md-6 ps-md-5">
                 <h3><strong>Giresun Kalesi</strong></h3>
-                <p>Giresun Kalesi, kenti ikiye bölen yarımadanın zirvesinde, M.Ö. 2. yüzyılda Pontus Kralı I. Pharnakes tarafından inşa ettirilmiş stratejik bir savunma yapısıdır. Günümüzde Milli Mücadele kahramanı Topal Osman Ağa’nın anıt mezarına ev sahipliği yapar.</p>
+                <p>Giresun Kalesi, şehri ikiye bölen dik bir kayalığın tepesinde yer alan ve M.Ö. 2. yüzyılda Pontus Kralı I. Pharnakes tarafından yaptırılan çok eski bir savunma yapısıdır. Kalenin en büyük özelliği, devasa taşların harç kullanılmadan üst üste dizilmesiyle oluşturulan (Kyklopik) surlarıdır. İçerisinde antik çağlardan kalma saray kalıntıları, dehlizler ve sarnıçlar bulunur. Burayı Giresunlular için en özel kılan şey ise Milli Mücadele kahramanı Topal Osman Ağa'nın mezarının burada olmasıdır. Bugün kale, hem tarihi dokusuyla hem de sunduğu eşsiz şehir ve deniz manzarasıyla Giresun'un en popüler gezi noktasıdır.</p>
             </div>
         </div>
 
-        <div class="row place-row g-5 flex-md-row-reverse">
+        <div class="row place-row flex-md-row-reverse">
             <div class="col-md-6">
                 <div class="place-img-container">
-                    <img src="img/ada.jpg" class="place-img" alt="Giresun Adası">
+                    <img src="img/ada.jpg" alt="Giresun Adası">
                 </div>
             </div>
-            <div class="col-md-6 place-content">
+            <div class="col-md-6 pe-md-5">
                 <h3><strong>Giresun Adası</strong></h3>
-                <p>Karadeniz’in üzerinde yerleşim izleri taşıyan tek adasıdır. Mitolojide Amazon kadınlarının üssü olarak bilinen ada, hem ekolojik bir sit alanı hem de Giresun'un mistik ruhunu temsil eden bir kültür durağıdır.</p>
+                <p>Kıyıdan sadece 3 km uzaklıkta bulunan Giresun Adası, Karadeniz’in üzerinde antik harabeler bulunan tek adasıdır. Burası dünya mitolojisinde çok büyük bir yere sahiptir; efsaneye göre savaşçı Amazon Kadınlarının kalesi ve Herkül'ün "Altın Post"u ararken uğradığı duraklardan biridir. Adada yapılan kazılarda Bizans döneminden kalma manastır temelleri, devasa erzak küpleri (pithoslar) ve gözetleme kuleleri bulunmuştur. Aynı zamanda martıların ve karabatakların doğal yuvası olan ada, her yıl Mayıs ayında düzenlenen Aksu Festivali ile binlerce yıllık geleneklerin yaşatıldığı mistik bir duraktır.</p>
             </div>
         </div>
 
-        <div class="row place-row g-5">
+        <div class="row place-row">
             <div class="col-md-6">
                 <div class="place-img-container">
-                    <img src="img/mavigol.jpg" class="place-img" alt="Mavi Göl">
+                    <img src="img/mavigol.jpg" alt="Mavi Göl">
                 </div>
             </div>
-            <div class="col-md-6 place-content">
+            <div class="col-md-6 ps-md-5">
                 <h3><strong>Mavi Göl</strong></h3>
-                <p>Kuzalan Tabiat Parkı sınırları içinde bulunan Mavi Göl, sodalı suyun kireç taşlarıyla birleşmesi sonucu oluşan cam göbeği rengiyle büyüleyici bir görünüme sahiptir.</p>
+                <p>Dereli ilçesindeki Kuzalan Tabiat Parkı içerisinde bulunan Mavi Göl, alışılmış derelerden çok farklı bir görüntüye sahiptir. Gölün suyunun o büyüleyici turkuaz rengi, yer altından çıkan sodalı suyun kireç taşı kayalıklarıyla birleşmesi sonucu oluşan doğal bir kimyasal tepkimedir. Karadeniz bölgesinde "akarsu" şeklinde akan ve sodalı olma özelliği taşıyan tek yer burasıdır. Özellikle yaz aylarında suyun en berrak ve en parlak maviye büründüğü Mavi Göl, çevresindeki yemyeşil ormanlarla kontrast oluşturarak insana kendini bir masal diyarında hissettirir.</p>
             </div>
         </div>
-
-        <div class="row place-row g-5 flex-md-row-reverse">
+        <div class="row place-row flex-md-row-reverse">
             <div class="col-md-6">
                 <div class="place-img-container">
-                    <img src="img/traverten.jpg" class="place-img" alt="Göksu Travertenleri">
+                    <img src="img/kulakkaya.jpg" alt="Kulakkaya Yaylası">
                 </div>
             </div>
-            <div class="col-md-6 place-content">
-                <h3><strong>Göksu Travertenleri</strong></h3>
-                <p>Mineralli suların oluşturduğu bembeyaz terasları ve turkuaz havuzlarıyla "Karadeniz'in Pamukkale'si" olarak adlandırılmaktadır.</p>
+            <div class="col-md-6 pe-md-5">
+                <h3><strong>Kulakkaya Yaylası</strong></h3>
+                <p>Deniz seviyesinden 1500 metre yükseklikte yer alan Kulakkaya, Giresun'un en eski ve en karakteristik yaylalarından biridir. Burası sadece bir dinlenme yeri değil, geleneksel ahşap evleri ve otantik sokaklarıyla yayla kültürünün hala canlı olduğu bir yerleşimdir. Geniş meraları, "Zifin" çiçekleriyle süslü doğası ve tertemiz havasıyla bilinir. Kulakkaya'nın en meşhur özelliği, sis denizinin üzerinde kalmasıdır; buraya çıktığınızda bazen bulutların üzerinde yürüyormuşsunuz gibi bir hisse kapılırsınız. Aynı zamanda Giresun’un meşhur doğal tereyağı ve süt ürünlerinin merkezi olarak gastronomi açısından da çok değerlidir.</p>
             </div>
         </div>
 
+
+        <div class="row place-row ">
+            <div class="col-md-6">
+                <div class="place-img-container">
+                    <img src="img/traverten.jpg" alt="Göksu Travertenleri">
+                </div>
+            </div>
+            <div class="col-md-6 pe-md-5">
+                <h3><strong>Göksu Travertenleri</strong></h3>
+                <p>Mavi Göl'ün hemen yakınında yer alan Göksu Travertenleri, mineralli suların etkisiyle oluşmuş, Karadeniz’in ortasında bembeyaz bir sürprizdir. Yer altından çıkan mineralli suların hava ile temas ederek kalsiyum karbonat çökeltisi bırakması sonucu bu beyaz teraslar ve turkuaz havuzlar meydana gelmiştir. "Karadeniz'in Pamukkale'si" olarak bilinen bu bölge, hem görsel güzelliğiyle hem de suyunun içerdiği minerallerle dikkat çeker. Modern peyzaj çalışmalarıyla ziyarete açılan travertenler, Giresun'un jeolojik açıdan ne kadar zengin olduğunu gösteren en estetik noktalardan biridir.</p>
+        </div>
+        </div>
+
+        <div class="row place-row flex-md-row-reverse">
+            <div class="col-md-6">
+                <div class="place-img-container">
+                    <img src="img/kuzalan.jpg" alt="Kuzalan Şelalesi">
+                </div>
+            </div>
+
+            <div class="col-md-6 ps-md-5">
+                <h3><strong>Kuzalan Şelalesi</strong></h3>
+                <p>Kuzalan Tabiat Parkı'nın en görkemli köşesi olan bu şelale, yaklaşık 20 metrelik bir yükseklikten büyük bir coşkuyla dökülür. Şelaleyi özel kılan, suyunun döküldüğü dev kazanı ve etrafını saran çok zengin bitki örtüsüdür. Sarp kayalıkların arasından fışkıran su, etrafa yaydığı su buharıyla yazın en sıcak günlerinde bile buz gibi bir hava oluşturur. Doğanın binlerce yıllık aşındırma gücüyle şekillenen bu şelale, Giresun-Sivas yolu üzerinde geçen herkesin durup hayranlıkla izlediği bir tabiat harikasıdır.</p>
+            </div>
+        </div>
+         <div class="row place-row">
+            <div class="col-md-6">
+                <div class="place-img-container">
+                    <img src="img/kumbetyaylası.jpg" alt="Kümbet Yaylası">
+                </div>
+            </div>
+            <div class="col-md-6 ps-md-5">
+                <h3><strong>Kümbet Yaylası</strong></h3>
+                <p>Deniz seviyesinden 1640 metre yükseklikte yer alan Kümbet Yaylası, Giresun’un en meşhur turizm merkezlerinden biridir. Uçsuz bucaksız çam ormanları, "Aymaç" mevkisindeki uçurum manzaraları ve Koçkayası Tabiat Parkı’ndaki bungalov evleriyle bilinir. Her yıl düzenlenen şenliklerle binlerce insanı ağırlayan Kümbet, modern yaşamın konforu ile doğanın vahşi güzelliğini birleştiren, Giresun’un en görkemli yayla rotasıdır.</p>
+            </div>
+        </div>
+        <div class="row place-row flex-md-row-reverse">
+            <div class="col-md-6">
+                <div class="place-img-container">
+                    <img src="img/zeytinlikevleri.jpg" alt="Tarihi Zeytinlik Evleri">
+                </div>
+            </div>
+            <div class="col-md-6 pe-md-5">
+                <h3><strong>Zeytinlik Semti (Tarihi Evler)</strong></h3>
+                <p>Giresun Kalesi’nin eteklerinde yer alan tarihi Zeytinlik Semti, 19. yüzyılda Avrupa ile ticaret yapan ailelerin inşa ettirdiği özgün taş konaklarla doludur. Dar sokakları, geniş bahçeleri ve dönemin estetiğini yansıtan yüksek tavanlı evleriyle bu bölge, kentsel dönüşüme direnmiş tarihi bir adacık gibidir. Koruma altına alınan bu semt, Giresun’un geçmişteki zengin ticaret kültürünü ve günlük sosyal yaşamını en iyi yansıtan yerleşim alanıdır.</p>
+            </div>
+        </div>
+
+        <div class="row place-row">
+            <div class="col-md-6">
+                <div class="place-img-container">
+                    <img src="img/tirebolukalesi.jpg" alt="Tirebolu Kalesi">
+                </div>
+            </div>
+            <div class="col-md-6 pe-md-5">
+                <h3><strong>Tirebolu Kalesi</strong></h3>
+                <p>Denizin içine bir gemi burnu gibi uzanan yüksek bir kaya kütlesi üzerine inşa edilen Tirebolu Kalesi, Giresun sahil şeridindeki en estetik yapılardan biridir. Cenevizliler dönemine kadar uzanan bir geçmişe sahip olan kale, içerisinde barındırdığı tarihi toplar ve taş odalarla dikkat çeker. Kalenin tepesinden izlenen deniz manzarası ve ilçenin karakteristik sahil dokusu, burayı bölgenin en önemli tarihi gözlem noktalarından biri yapar.</p>
+            </div>
+        </div>
+
+        
     </main>
 
     <footer class="text-center">
-        <div class="container">
-            <p class="mb-0">Serra Nur Bektaş | Web Proje Ödevi &copy; 2026</p>
-        </div>
+        <p class="mb-0">Sakarya Üniversitesi | Web Teknolojileri Projesi &copy; 2026</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
