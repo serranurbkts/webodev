@@ -3,116 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Özgeçmiş | Serra Nur Bektaş</title>
+    <title>Özgeçmişim</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         :root {
-            --ana: #84a59d; --koyu: #5a7d75; --arka: #f8f9fa; --yazi: #3d405b;
+            --giresun-yesili: #2d5a27;
+            --koyu-gri: #212529;
+            --acik-gri: #f8f9fa;
         }
 
-        body { background-color: var(--arka); font-family: 'Poppins', sans-serif; color: var(--yazi); }
-        
-        .navbar { background-color: var(--koyu) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-
-        /* Profil Header */
-        .header-bg {
-            background: linear-gradient(135deg, var(--koyu) 0%, var(--ana) 100%);
-            height: 200px;
-            width: 100%;
+        body {
+            background-color: #fdfdfd;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Sağa kaymayı engeller */
         }
 
-        .profile-container { margin-top: -100px; }
+        .resume-header {
+            background-color: var(--acik-gri);
+            border-bottom: 5px solid var(--giresun-yesili);
+            padding: 60px 0;
+        }
 
         .profile-img {
-            width: 180px; height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 8px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* CV Kartları */
-        .cv-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 25px;
-            border: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            transition: 0.3s;
+            width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Resmin sünmesini engeller */
+    border: 6px solid #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 50% !important;
+    display: block;
         }
 
         .section-title {
-            color: var(--koyu);
-            font-weight: 800;
-            border-bottom: 3px solid var(--ana);
+            font-weight: 700;
+            color: var(--koyu-gri);
+            border-bottom: 3px solid var(--giresun-yesili);
             display: inline-block;
-            margin-bottom: 25px;
             padding-bottom: 5px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
         }
 
-        /* Yetenekler */
-        .skill-badge {
-            background: var(--arka);
-            color: var(--koyu);
-            border: 1px solid var(--ana);
-            padding: 8px 15px;
-            border-radius: 50px;
-            display: inline-block;
-            margin: 5px;
-            font-size: 0.9rem;
+        .cv-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--giresun-yesili);
+        }
+
+        .timeline-date {
+            color: var(--giresun-yesili);
             font-weight: 600;
+            font-size: 0.9rem;
         }
-
-        .progress { height: 8px; border-radius: 10px; margin-bottom: 20px; background: #eee; }
-        .progress-bar { background-color: var(--ana); }
-
-        footer { background-color: var(--koyu); color: white; padding: 30px 0; margin-top: 50px; }
     </style>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #212529 !important; border-bottom: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">SNB</a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="index.html">Anasayfa</a>
-                <a class="nav-link active" href="ozgecmis.html">Özgeçmiş</a>
-                <a class="nav-link" href="sehrim.html">Şehrim</a>
-                <a class="nav-link" href="iletisim.html">İletişim</a>
+            <a class="navbar-brand fw-bold" href="index.html">Kişisel Web Sitesi</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#serraNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="serraNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link px-3" href="index.html">Anasayfa</a>
+                    <a class="nav-link active px-3 fw-bold" href="ozgecmis.html">Özgeçmiş</a>
+                    <a class="nav-link px-3" href="sehrim.html">Şehrim</a>
+                    <a class="nav-link px-3" href="mirasimiz.html">Mirasımız</a>
+                    <a class="nav-link px-3" href="iletisim.html">İletişim</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="header-bg"></div>
-
-    <div class="container profile-container text-center mb-5">
-        <img src="img/profil.jpg" class="profile-img mb-3" alt="Serra Nur Bektaş">
-        <h1 class="fw-bold">Serra Nur Bektaş</h1>
-        <p class="lead text-muted">Sakarya Üniversitesi |Bilgisayar Mühendisliği Öğrencisi</p>
-        <div class="d-flex justify-content-center gap-2">
-            <span class="skill-badge">C++</span>
-            <span class="skill-badge">C#</span>
-            <span class="skill-badge">Python</span>
+    <header class="resume-header">
+       <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 text-center mb-4 mb-lg-0">
+                    <img src="img/ben.jpg" alt="Profil" class="profile-img rounded-circle">
+                </div>
+                <div class="col-lg-9 ps-lg-5">
+                    <h1 class="display-3 fw-bold mb-1">Serra Nur Bektaş</h1>
+                    <h4 class="mb-4" style="color: var(--giresun-yesili);">Bilgisayar Mühendisliği Öğrencisi</h4>
+                    <p class="lead text-muted mb-4">Sakarya Üniversitesi'nde bilgisayar mühendisliği 1. sınıf öğrencisiyim.</p>
+                </div>
+            </div>
         </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <section class="mb-5">
+                    <h2 class="section-title"><i class="bi bi-mortarboard-fill me-2"></i> Eğitim</h2>
+                    <a href="https://cs.sakarya.edu.tr/" target="_blank" class="text-decoration-none">
+                        <div class="cv-card">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3 d-none d-md-block"><i class="bi bi-building-fill text-success fs-2"></i></div>
+                                    <div>
+                                        <h5 class="fw-bold mb-1 text-dark">Sakarya Üniversitesi</h5>
+                                        <p class="mb-0 text-muted">Bilgisayar Mühendisliği</p>
+                                    </div>
+                                </div>
+                                <span class="timeline-date">2025 - Günümüz</span>
+                            </div>
+                        </div>
+                    </a>
+                     <a href="https://huseyinburge.meb.k12.tr/" target="_blank" class="text-decoration-none">
+                        <div class="cv-card">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3 d-none d-md-block"><i class="bi bi-building-fill text-success fs-2"></i></div>
+                                    <div>
+                                        <h5 class="fw-bold mb-1 text-dark">Hüseyin Bürge Anadolu Lisesi</h5>
+                                        <p class="mb-0 text-muted">Bayrampaşa/İstanbul</p>
+                                    </div>
+                                </div>
+                                <span class="timeline-date">2020 - 2024</span>
+                            </div>
+                        </div>
+                    </a>
+                </section>
+
+                 <section class="mb-5">
+
+    <h2 class="section-title"><i class="bi bi-trophy-fill me-2"></i>Katıldığım Sertifikalı Eğitimler ve Yarışmalar</h2>
+
+     <div class="cv-card mb-3 border-start border-4" style="border-color: #0d6efd !important;">
+
+        <div class="d-flex justify-content-between">
+
+            <h5 class="fw-bold mb-1">RaConf26 Siber Güvenlik Konferansı</h5>
+
+            <span class="badge bg-dark">2026</span>
+
+        </div>
+
+        <p class="text-muted small mb-2">Sakarya Üniversitesi - 24 Nisan 2026</p>
+
+        <ul class="small text-secondary ps-3">
+
+            <li>Siber güvenlik dünyasındaki güncel tehdit vektörleri ve savunma mekanizmaları üzerine teknik oturumlar.</li>
+
+            <li>Ağ güvenliği ve ofansif güvenlik stratejileri hakkında sektör profesyonellerinden workshop eğitimleri.</li>
+
+        </ul>
+
+        <p>Üniversite hayatımın başında siber güvenlik dünyasına profesyonel bir adım atmamı sağlayan bu etkinlikte, sektörün öncü isimlerinden siber güvenlik dünyasındaki en güncel tehditleri ve korunma yöntemlerini dinleme fırsatı buldum. Teorik bilgilerin gerçek hayattaki siber saldırı senaryolarıyla nasıl birleştiğini gözlemlemledim.</p>
+
+   
+
     </div>
 
-    <main class="container">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="cv-card">
-                    <h3 class="section-title">Eğitim</h3>
-                    <div class="mb-4">
-                        <h5 class="fw-bold mb-1">Bilgisayar Mühendisliği</h5>
-                        <p class="text-muted small mb-2">Sakarya Üniversitesi | 2025 - Devam</p>
-                        <p>Algoritmalar, Veri Yapıları ve Nesne Yönelimli Programlama üzerine yoğunlaşarak mühendislik temellerimi oluşturuyorum.</p>
-                    </div>
-                </div>
+    <div class="cv-card mb-3 border-start border-4" style="border-color:#0d6efd  !important;">
 
-                <div class="cv-card">
-                    <h3 class="section-title">Uzmanlık & Eğitimler</h3>
-                    <div class="mb-4">
-                        <h5 class="fw-bold mb-1">Siber Güvenlik ve Sızma Testleri</h5>
-                        <p class="text-muted small mb-2">Nisan 2026</p>
-                        <p>Kali Linux ortamında ağ tarama, zafiyet analizi ve penetrasyon testleri üzerine uygulam
+        <div class="d-flex justify-content-between">
+
+            <h5 class="fw-bold mb-1">Sızma Testi Eğitimi</h5>
+
+            <span class="badge bg-dark">2026</span>
+
+        </div>
+
+        <p class="text-muted small mb-2">Sakarya Üniversitesi - 25-26 Nisan 2026</p>
+
+        <ul class="small text-secondary ps-3">
+
+            <li>Siber güvenlik dünyasındaki güncel tehdit vektörleri ve savunma mekanizmaları üzerine teknik oturumlar.</li>
+
+            <li>Siber güvenlik alanında çalışan profesyonellerin deneyim aktarımları ve kariyer yolculuklarına dair teknik tavsiyeler.</li>
+
+        </ul>
+
+        <p>Sistemlere bir 'saldırgan' gözüyle bakabilmenin, aslında en güçlü savunma stratejisi olduğunu fark ettim. Çalışmalarda, bir açığı bulup sömürmekten ziyade, o açığın neden oluştuğunu ve nasıl kalıcı olarak kapatılabileceğini öğrendim.</p>
+
+         </div>
+
+
+
+    <div class="cv-card mb-3 border-start border-4" style="border-color: #0d6efd !important;">
+
+        <div class="d-flex justify-content-between">
+
+            <h5 class="fw-bold mb-1">Data League 2026</h5>
+
+            <span class="badge bg-dark">2026</span>
+
+        </div>
+
+        <p class="text-muted small mb-2">Veri Bilimi ve Analitiği Yarışması  </p>
+
+        <ul class="small text-secondary ps-3">
+
+            <li>Büyük veri setleri üzerinden anlamlı çıkarımlar yapma ve veri görselleştirme süreçleri.</li>
+
+            <li>Karmaşık veri problemlerine yönelik çözüm stratejileri geliştirme.</li>
+
+        </ul>
+
+        <p>Verinin sadece rakamlardan ibaret olmadığını, doğru analiz edildiğinde stratejik bir yol haritasına dönüştüğünü deneyimledim. Bu süreçte, karmaşık veri setleri içindeki gizli kalıpları bulmayı ve bu sonuçlara dayanarak kısıtlı sürede rasyonel kararlar alabilmeyi öğrendim.</p>
+
+    </div>
+
+</section>
+<section class="mb-5">
+                    <h2 class="section-title"><i class="bi bi-code-slash me-2"></i>Alanımda Gelişim Yolculuğum</h2>
+                    <div class="cv-card">
+                        <div class="mb-4">
+                            <h6 class="fw-bold text-dark mb-3">
+                                <i class="bi bi-book me-2 text-primary"></i>Uzmanlaşmaya Çlıştığım Alanlar
+                            </h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                  <span class="badge bg-primary px-3 py-2">C++</span>
+                                <span class="badge bg-primary px-3 py-2">C#</span>
+                                <span class="badge bg-primary px-3 py-2">Python</span>
+                                <span class="badge bg-primary px-3 py-2">PHP</span>
+                                <span class="badge bg-primary px-3 py-2">HTML/CSS</span>
+                            </div>
+                            <small class="text-muted d-block mt-2">Derslerim ve yaptığım ödev çalışmalarıyla üzerinde yoğun şekilde durduğum ve uzmanlaşmayı amaçladığım alanlar.</small>
+                        </div>
+
+                        <div>
+                            <h6 class="fw-bold text-dark mb-3">
+                                <i class="bi bi-shield-check me-2 text-success"></i>Öğrenmeyi Sürdürdüğüm Alanlar
+                            </h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-success px-3 py-2">Kali Linux</span>
+                                <span class="badge bg-success px-3 py-2">Sızma Testi</span>
+                                <span class="badge bg-success px-3 py-2">Veri Analizi</span>
+                              
+                            </div>
+                             <small class="text-muted d-block mt-2">Katıldığım etkinlik ve yarışmalar nedeniyle hakkında bilgi sahibi olduğum ,ilgimi çeken ve öğrenme aşamasında olduğum alanlar.</small>
+                    
+                        </div>
+                    </div>
+                </section>
+
+</div>
+
+</div>
+</main>
+
+    <footer style="background-color: #212529; color: white; border-top: 3px solid #2d5a27; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+        <div class="container-fluid text-center py-4">
+            <p class="mb-0">Sakarya Üniversitesi | Web Teknolojileri Projesi &copy; 2026</p>
+                 </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
