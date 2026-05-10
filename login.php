@@ -1,46 +1,21 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Projesi | [Sayfa Adı]</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">WebProje</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.php">Hakkında</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ozgecmis.php">Özgeçmiş</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sehrim.php">Şehrim</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mirasimiz.php">Mirasımız</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ilgi-alanlarim.php">İlgi Alanlarım</a></li>
-                    <li class="nav-item"><a class="nav-link" href="iletisim.php">İletişim</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.php">Giriş Yap</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<?php
+// Formdan gelen verileri alıyoruz
+$email = $_POST['email'];
+$password = $_POST['password'];
 
+// Kullanıcı adı: g251210001@sakarya.edu.tr (Örnektir, kendi numaranı yazabilirsin)
+// Şifre: g251210001 (Genelde numaranın kendisi istenir)
 
+// Basit bir doğrulama mantığı:
+// 1. E-posta boş mu?
+// 2. Şifre doğru mu?
 
-
-
-
-
-
-    <footer class="bg-light text-center py-4 mt-5 border-top">
-        <div class="container">
-            <p>&copy; 2026 - [Adın Soyadın] - Sakarya Üniversitesi</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+if ($email == "g251210001@sakarya.edu.tr" && $password == "g251210001") {
+    // Giriş başarılıysa kullanıcıyı hoşgeldin sayfasına yönlendiriyoruz
+    // Buradaki 'g251210001' kısmını e-postadan çekip dinamik de yapabiliriz
+    echo "<script>alert('Hoşgeldiniz g251210001'); window.location.href='index.html';</script>";
+} else {
+    // Giriş hatalıysa uyarı verip tekrar login sayfasına gönderiyoruz
+    echo "<script>alert('Hatalı kullanıcı adı veya şifre!'); window.location.href='login.html';</script>";
+}
+?>

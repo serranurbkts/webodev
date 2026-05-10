@@ -3,114 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoş Geldiniz | Serra Nur Bektaş</title>
+    <title>Anasayfa | Serra Nur Bektaş</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         :root {
-            --ana-yesil: #84a59d;    
-            --koyu-yesil: #5a7d75;   
-            --arka-plan: #f8f9fa;    
-            --yazi: #3d405b;
+            --ana-yesil: #2d5a27; /* Giresun Yeşili */
+            --koyu: #212529;
+            --arka-plan: #fdfdfd;
         }
 
         body {
             background-color: var(--arka-plan);
-            font-family: 'Poppins', sans-serif;
-            color: var(--yazi);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--koyu);
         }
 
-        .navbar { background-color: var(--koyu-yesil) !important; }
-
-        .hero-section {
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/background.jpg');
-            background-size: cover;
-            background-position: center;
+        /* Navigasyon - Diğer sayfalarla ortak */
+        .navbar { 
+            background-color: var(--koyu) !important; 
+            border-bottom: 4px solid var(--ana-yesil);
         }
 
-        .btn-custom {
+        /* Giriş Bölümü - Özgeçmiş Header stili ile aynı */
+        .intro-header {
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 80px 0;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            border-left: 5px solid var(--ana-yesil);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        /* Özgeçmişteki cv-card yapısı */
+        .cv-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .nav-link-card:hover .cv-card {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border-color: var(--ana-yesil);
+        }
+
+        .btn-giresun {
             background-color: var(--ana-yesil);
             color: white;
-            padding: 12px 30px;
             border-radius: 50px;
-            text-decoration: none;
-            transition: 0.3s;
-            font-weight: 600;
-            display: inline-block;
-            margin: 10px;
+            padding: 10px 30px;
             border: none;
-        }
-
-        .btn-custom:hover {
-            background-color: var(--koyu-yesil);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .feature-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            font-weight: 600;
             transition: 0.3s;
-            height: 100%;
         }
 
-        .feature-card:hover { transform: translateY(-10px); }
+        .btn-giresun:hover {
+            background-color: var(--koyu);
+            color: white;
+        }
+
+        /* Footer Koruması - Ekrana tam yayılan siyah bant */
+        .footer-full {
+            background-color: var(--koyu);
+            color: white;
+            border-top: 4px solid var(--ana-yesil);
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">SNB</a>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Kişisel Web Sitesi</a>
+        <div class="collapse navbar-collapse" id="serraNav">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link active" href="index.html">Anasayfa</a>
+                <a class="nav-link active fw-bold" href="index.html">Anasayfa</a>
                 <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
                 <a class="nav-link" href="sehrim.html">Şehrim</a>
+                <a class="nav-link" href="mirasimiz.html">Mirasımız</a>
                 <a class="nav-link" href="iletisim.html">İletişim</a>
+                <a class="nav-link" href="ilgi alanlarim.html">İlgi Alanlarım</a>
+           
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <header class="hero-section text-center">
-        <div class="container">
-            <h1 class="display-2 fw-bold" style="color: var(--koyu-yesil);">Merhaba, Ben Serra Nur</h1>
-            <p class="lead mb-5">Geleceğin Bilgisayar Mühendisi & Web Geliştiricisi</p>
-            <div>
-                <a href="ozgecmis.html" class="btn-custom">Beni Tanıyın</a>
-                <a href="sehrim.html" class="btn-custom" style="background-color: transparent; border: 2px solid var(--ana-yesil); color: var(--ana-yesil);">Giresun'u Keşfedin</a>
+<header class="intro-header">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3">Merhaba, Ben <span style="color: var(--ana-yesil);">Serra Nur Bektaş</span></h1>
+                <p class="lead text-muted mb-4">
+                    <strong>Öncelikle siteme hoşgeldin! </strong>
+                Ben, Sakarya Üniversitesi Bilgisayar Mühendisliği 1.sınıf öğrencisiyim. Bu web sitesi, Web Teknolojileri dersimin projesidir. Sitem içerisinde kendimden, proje ve çalışmalarımdan bahsettim. Ayrıca memleketim Giresun'u birçok açıdan tanıtmaya çalıştım. İçerisinde sana uygun fazlasıyla içerik bulacağından eminim😊</p>
+                <a href="iletisim.html" class="btn btn-giresun">İletişime geçmek için tıklayın</a>
             </div>
+           
         </div>
-    </header>
+    </div>
+</header>
 
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="feature-card">
-                        <h3>Kişisel Portfolyo</h3>
-                        <p>Eğitim hayatım, projelerim ve yetkinliklerim hakkında detaylı bilgiye buradan ulaşabilirsiniz.</p>
-                        <a href="ozgecmis.html" class="text-decoration-none fw-bold" style="color: var(--ana-yesil);">Devamını Gör &rarr;</a>
-                    </div>
+<main class="container mb-5">
+    <h2 class="section-title">İlginizi çekebilecek içerikler</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <a href="ozgecmis.html" class="nav-link-card">
+                <div class="cv-card">
+                    <i class="bi bi-file-earmark-person fs-1 text-success mb-3"></i>
+                    <h4 class="fw-bold">Özgeçmiş</h4>
+                    <p class="text-muted small">Eğitim hayatım, katıldığım eğitim, proje ve yarışmalardan haberdar olmak için tıklayın.</p>
                 </div>
-                <div class="col-md-6">
-                    <div class="feature-card">
-                        <h3>Şehir Rehberi</h3>
-                        <p>Doğduğum ve büyüdüğüm şehir Giresun'un eşsiz güzelliklerini ve kültürünü keşfedin.</p>
-                        <a href="sehrim.html" class="text-decoration-none fw-bold" style="color: var(--ana-yesil);">Şehri Keşfet &rarr;</a>
-                    </div>
-                </div>
-            </div>
+            </a>
         </div>
-    </section>
+        <div class="col-md-4">
+            <a href="sehrim.html" class="nav-link-card">
+                <div class="cv-card">
+                    <i class="bi bi-map fs-1 text-success mb-3"></i>
+                    <h4 class="fw-bold">Memleketim Giresun</h4>
+                    <p class="text-muted small">Memleketim Giresun'un sahip olduğu eşsiz doğa harikaları ve biricik tarihi yapılarını detaylıca öğrenebilmek için tıklayın.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="mirasimiz.html" class="nav-link-card">
+                <div class="cv-card">
+                    <i class="bi bi-mortarboard fs-1 text-success mb-3"></i>
+                    <h4 class="fw-bold">Mirasımız: Giresun</h4>
+                    <p class="text-muted small"></p>Giresun'nun tarihi ve kültürel mirasları hakkında detaylı bilgi sahibi olmak için tıklayınız.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
 
-    <footer class="text-center py-4 bg-white border-top">
-        <p class="mb-0">&copy; 2026 Serra Nur Bektaş | Tüm Hakları Saklıdır.</p>
-    </footer>
+<footer class="footer-full text-center">
+    <div class="container-fluid">
+        <p class="mb-0 fw-bold">Sakarya Üniversitesi | Web Teknolojileri Projesi &copy; 2026</p>
+         </div>
+</footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
