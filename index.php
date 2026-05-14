@@ -1,12 +1,22 @@
+<?php
+session_start();
+
+// Eğer kullanıcı giriş yapmamışsa (oturum açılmamışsa)
+if (!isset($_SESSION['user_id'])) {
+    // Kullanıcıyı giriş sayfasına geri fırlat
+    header("Location: giris.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anasayfa | Serra Nur Bektaş</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<style>
         :root {
             --ana-yesil: #2d5a27; /* Giresun Yeşili */
             --koyu: #212529;
@@ -97,15 +107,15 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Kişisel Web Sitesi</a>
+        <a class="navbar-brand fw-bold" href="index.php">Kişisel Web Sitesi</a>
         <div class="collapse navbar-collapse" id="serraNav">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link active fw-bold" href="index.html">Anasayfa</a>
-                <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
-                <a class="nav-link" href="sehrim.html">Şehrim</a>
-                <a class="nav-link" href="mirasimiz.html">Mirasımız</a>
-                <a class="nav-link" href="iletisim.html">İletişim</a>
-                <a class="nav-link" href="ilgi alanlarim.html">İlgi Alanlarım</a>
+                <a class="nav-link active fw-bold" href="index.php">Anasayfa</a>
+                <a class="nav-link" href="ozgecmis.php">Özgeçmiş</a>
+                <a class="nav-link" href="sehrim.php">Şehrim</a>
+                <a class="nav-link" href="mirasimiz.php">Mirasımız</a>
+                <a class="nav-link" href="iletisim.php">İletişim</a>
+                <a class="nav-link" href="ilgialanlarim.php">İlgi Alanlarım</a>
            
             </div>
         </div>
@@ -120,7 +130,7 @@
                 <p class="lead text-muted mb-4">
                     <strong>Öncelikle siteme hoşgeldin! </strong>
                 Ben, Sakarya Üniversitesi Bilgisayar Mühendisliği 1.sınıf öğrencisiyim. Bu web sitesi, Web Teknolojileri dersimin projesidir. Sitem içerisinde kendimden, proje ve çalışmalarımdan bahsettim. Ayrıca memleketim Giresun'u birçok açıdan tanıtmaya çalıştım. İçerisinde sana uygun fazlasıyla içerik bulacağından eminim😊</p>
-                <a href="iletisim.html" class="btn btn-giresun">İletişime geçmek için tıklayın</a>
+                <a href="iletisim.php" class="btn btn-giresun">İletişime geçmek için tıklayın</a>
             </div>
            
         </div>
@@ -131,7 +141,7 @@
     <h2 class="section-title">İlginizi çekebilecek içerikler</h2>
     <div class="row g-4">
         <div class="col-md-4">
-            <a href="ozgecmis.html" class="nav-link-card">
+            <a href="ozgecmis.php" class="nav-link-card">
                 <div class="cv-card">
                     <i class="bi bi-file-earmark-person fs-1 text-success mb-3"></i>
                     <h4 class="fw-bold">Özgeçmiş</h4>
@@ -140,7 +150,7 @@
             </a>
         </div>
         <div class="col-md-4">
-            <a href="sehrim.html" class="nav-link-card">
+            <a href="sehrim.php" class="nav-link-card">
                 <div class="cv-card">
                     <i class="bi bi-map fs-1 text-success mb-3"></i>
                     <h4 class="fw-bold">Memleketim Giresun</h4>
@@ -149,7 +159,7 @@
             </a>
         </div>
         <div class="col-md-4">
-            <a href="mirasimiz.html" class="nav-link-card">
+            <a href="mirasimiz.php" class="nav-link-card">
                 <div class="cv-card">
                     <i class="bi bi-mortarboard fs-1 text-success mb-3"></i>
                     <h4 class="fw-bold">Mirasımız: Giresun</h4>
@@ -157,6 +167,15 @@
                 </div>
             </a>
         </div>
+          <center><div class="col-md-4">
+            <a href="ilgi alanlarim.php" class="nav-link-card">
+                <div class="cv-card">
+                    <i class="bi bi-map fs-1 text-success mb-3"></i>
+                    <h4 class="fw-bold">İlgi Alanlarım</h4>
+                    <p class="text-muted small">Birbirinden farklı alanlara olan ilgimi öğrenmek ve bakış açımı görmek için tıklayın.</p>
+                </div>
+            </a>
+        </div></center>
     </div>
 </main>
 
@@ -166,6 +185,6 @@
          </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

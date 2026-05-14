@@ -1,14 +1,46 @@
+<?php
+session_start();
+
+if(isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // --- KENDİ ÖĞRENCİ NUMARAM ---
+    $ogrenciNo = "b251210035"; 
+    $dogru_eposta = $ogrenciNo . "@sakarya.edu.tr"; 
+    $dogru_sifre = $ogrenciNo; 
+    // ------------------------------------------
+
+    if ($email == $dogru_eposta && $password == $dogru_sifre) {
+        $_SESSION['user_id'] = $ogrenciNo;
+        // Başarı mesajı sayfası gösterilmesi istenmiş
+        echo "<script>
+                alert('Hoşgeldiniz " . $ogrenciNo . "'); 
+                window.location.href='index.php';
+              </script>";
+        exit();
+    } else {
+        echo "<script>alert('Hatalı e-posta veya şifre!'); window.location.href='giris.php';</script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giriş Yap</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
+    <title>Giriş Yap | Serra Nur Bektaş</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
         :root {
-            --ana-yesil: #2d5a27;
+            --ana-yesil: #2d5a27; /* Giresun Yeşili */
             --koyu: #212529;
             --arka-plan: #f8f9fa;
         }
@@ -26,17 +58,6 @@
             border-bottom: 4px solid var(--ana-yesil);
         }
 
-        /* Login Kartı - cv-card yapısıyla uyumlu */
-        .login-card {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            max-width: 400px;
-            width: 100%;
-        }
-
         .login-container {
             flex: 1;
             display: flex;
@@ -45,10 +66,14 @@
             padding: 40px 0;
         }
 
-        .form-control {
-            border-radius: 8px;
-            padding: 12px;
-            border: 1px solid #ddd;
+        .login-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            border-top: 5px solid var(--ana-yesil);
         }
 
         .form-control:focus {
@@ -59,7 +84,7 @@
         .btn-login {
             background-color: var(--ana-yesil);
             color: white;
-            border-radius: 50px;
+            border-radius: 8px;
             padding: 12px;
             border: none;
             font-weight: 600;
@@ -85,7 +110,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Kişisel Web Sitesi</a>
+        <a class="navbar-brand fw-bold" href="index.php">Kişisel Web Sitesi</a>
     </div>
 </nav>
 
@@ -94,17 +119,17 @@
         <div class="text-center mb-4">
             <i class="bi bi-person-circle fs-1 text-success"></i>
             <h3 class="fw-bold mt-2">Sistem Girişi</h3>
-            <p class="text-muted small">Lütfen öğrenci bilgilerinizle giriş yapın.</p>
+            <p class="text-muted small">Lütfen öğrenci e-postanızla giriş yapın.</p>
         </div>
 
-        <form action="login_kontrol.php" method="POST" id="loginForm">
+        <form action="giris.php" method="POST" id="loginForm">
             <div class="mb-3">
                 <label class="form-label small fw-bold">E-Posta Adresi</label>
-                <input type="email" name="email" class="form-control" placeholder="g251210001@sakarya.edu.tr" required>
+                <input type="email" name="email" class="form-control" placeholder="b251210xxx@sakarya.edu.tr" required>
             </div>
             <div class="mb-4">
                 <label class="form-label small fw-bold">Şifre</label>
-                <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                <input type="password" name="password" class="form-control" placeholder="Öğrenci Numaranız" required>
             </div>
             <button type="submit" class="btn-login">Giriş Yap</button>
         </form>
@@ -117,6 +142,5 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,12 +1,22 @@
+<?php
+session_start();
+
+// Eğer kullanıcı giriş yapmamışsa (oturum açılmamışsa)
+if (!isset($_SESSION['user_id'])) {
+    // Kullanıcıyı giriş sayfasına geri fırlat
+    header("Location: giris.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+   <style>
         :root {
             --giresun-yesili: #2d5a27;
             --koyu-gri: #212529;
@@ -76,28 +86,31 @@
             color: var(--giresun-yesili);
         }
     </style>
+   <script src="js/vue.global.js"></script>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Kişisel Web Sitesi</a>
+        <a class="navbar-brand fw-bold" href="index.php">Kişisel Web Sitesi</a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#serraNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="serraNav">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link px-3" href="index.html">Anasayfa</a>
-                <a class="nav-link px-3" href="ozgecmis.html">Özgeçmiş</a>
-                <a class="nav-link px-3" href="sehrim.html">Şehrim</a>
-                <a class="nav-link px-3" href="mirasimiz.html">Mirasımız</a>
-                <a class="nav-link active px-3 fw-bold" href="iletisim.html">İletişim</a>
+                <a class="nav-link px-3" href="index.php">Anasayfa</a>
+                <a class="nav-link px-3" href="ozgecmis.php">Özgeçmiş</a>
+                <a class="nav-link px-3" href="sehrim.php">Şehrim</a>
+                <a class="nav-link px-3" href="mirasimiz.php">Mirasımız</a>
+                <a class="nav-link active px-3 fw-bold" href="iletisim.php">İletişim</a>
+                <a class="nav-link" href="ilgialanlarim.php">İlgi Alanlarım</a>
+           
             </div>
         </div>
     </div>
 </nav>
 
-<main class="container py-5 my-5">
+<main class="container py-5 my-5" id="app">
     <div class="row g-5 align-items-center">
         <div class="col-lg-5">
             <h1 class="display-5 fw-bold mb-4" style="color: var(--koyu-gri);">Benimle İletişime Geçin</h1>
@@ -114,7 +127,7 @@
             </div>
 
             <div class="mt-5">
-                <h6 class="text-uppercase fw-bold text-muted small mb-3">Diğer</h6>
+                <h6 class="text-uppercase fw-bold text-muted small mb-3">Diğer Hesaplarım</h6>
                 <a href="https://www.linkedin.com/in/serra-nur-bekta%C5%9F-68648b402/" target="_blank" class="social-link"><i class="bi bi-linkedin me-1"></i> LinkedIn</a>
                 <a href="https://github.com/serranurbkts/webodev" target="_blank" class="social-link"><i class="bi bi-github me-1"></i> GitHub</a>
             </div>
@@ -127,23 +140,36 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             
-                            <input type="text" class="form-control border-0" placeholder="Adınız" required>
+                           <input type="text" name="ad" id="ad" class="form-control border-0" placeholder="Adınız" v-model="form.ad">
                         </div>
                         <div class="col-md-6 mb-3">
                             
-                            <input type="text" class="form-control border-0" placeholder="Soyadınız" required>
-                        </div>
+                            <input type="text" name="soyad" id="soyad" class="form-control border-0" placeholder="Soyadınız" v-model="form.soyad">      
+                    </div>
                     </div>
                     <div class="mb-3">
                         
-                        <input type="email" class="form-control border-0" placeholder="E-Posta" required>
+                      <input type="email" name="email" id="email" class="form-control border-0" placeholder="E-Posta" v-model="form.email">
                     </div>
-                    <div class="mb-4">
-                        <label class="form-label small fw-bold">Eklemek istediğiniz mesajınız</label>
-                        <textarea class="form-control border-0" rows="5" placeholder="Mesajınız" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit w-100">Gönder<i class="bi bi-send-fill ms-2"></i></button>
-                </form>
+                   <div class="mb-4">
+    <label class="form-label small fw-bold">Eklemek istediğiniz mesajınız</label>
+    <textarea name="mesaj" class="form-control border-0" rows="5" placeholder="Mesajınız" v-model="form.mesaj"></textarea>     
+</div>
+
+<div class="d-grid gap-2">
+    <button type="button" class="btn btn-primary rounded-pill py-2" onclick="validateWithJS()">
+        JS ile Denetle ve Gönder
+    </button>
+    
+    <button type="button" class="btn-submit w-100" @click="validateWithVue">
+        Vue.js ile Denetle ve Gönder <i class="bi bi-send-fill ms-2"></i>
+    </button>
+    
+    <button type="reset" class="btn btn-link text-muted btn-sm mt-1 text-decoration-none">
+        Formu Temizle
+    </button>
+</div>
+</form>
             </div>
         </div>
     </div>
@@ -154,6 +180,49 @@
         <p class="mb-0 fw-bold">Sakarya Üniversitesi | Web Teknolojileri Projesi &copy; 2026</p> </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+// --- 1. KLASİK JAVASCRIPT KONTROLÜ ---
+function validateWithJS() {
+    const ad = document.getElementById('ad').value;
+    const email = document.getElementById('email').value;
+    
+    if (ad === "" || email === "") {
+        alert("Klasik JS Hatası: Ad ve Email boş bırakılamaz!");
+    } else if (!email.includes("@")) {
+        alert("Klasik JS Hatası: Geçersiz e-posta formatı!");
+    } else {
+        alert("Klasik JS Başarılı! Form gönderiliyor...");
+        document.getElementById('contactForm').submit();
+    }
+}
+
+// --- 2. VUE.JS KONTROLÜ ---
+const { createApp } = Vue;
+createApp({
+    data() {
+        return {
+            form: {
+                ad: '',
+                soyad: '',
+                email: '',
+                mesaj: ''
+            }
+        }
+    },
+    methods: {
+        validateWithVue() {
+            if (!this.form.ad || !this.form.soyad || !this.form.email) {
+                alert("Vue.js Uyarısı: Lütfen tüm alanları doldurun!");
+            } else if (!this.form.email.includes('.')) {
+                alert("Vue.js Uyarısı: Email adresi bir nokta (.) içermelidir!");
+            } else {
+                alert("Vue.js Başarılı! PHP sayfasına yönlendiriliyorsunuz...");
+                document.getElementById('contactForm').submit();
+            }
+        }
+    }
+}).mount('#app');
+</script>
 </body>
 </html>

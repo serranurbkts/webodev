@@ -1,12 +1,22 @@
+<?php
+session_start();
+
+// Eğer kullanıcı giriş yapmamışsa (oturum açılmamışsa)
+if (!isset($_SESSION['user_id'])) {
+    // Kullanıcıyı giriş sayfasına geri fırlat
+    header("Location: giris.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giresun | Gezilmesi Gereken Yerler</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+   <style>
         :root {
             --ana-yesil: #2d5a27; /* Mirasımız sayfasıyla aynı koyu yeşil */
             --yazi: #3d405b;
@@ -90,14 +100,15 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Kişisel Web Sitesi</a>
+            <a class="navbar-brand fw-bold" href="index.php">Kişisel Web Sitesi</a>
             <div class="collapse navbar-collapse" id="serraNav">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="index.html">Anasayfa</a>
-                    <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
-                    <a class="nav-link active" href="sehrim.html">Şehrim</a>
-                    <a class="nav-link" href="mirasimiz.html">Mirasımız</a>
-                    <a class="nav-link" href="iletisim.html">İletişim</a>
+                    <a class="nav-link" href="index.php">Anasayfa</a>
+                    <a class="nav-link" href="ozgecmis.php">Özgeçmiş</a>
+                    <a class="nav-link active" href="sehrim.php">Şehrim</a>
+                    <a class="nav-link" href="mirasimiz.php">Mirasımız</a>
+                    <a class="nav-link" href="iletisim.php">İletişim</a>
+                    <a class="nav-link" href="ilgialanlarim.php">İlgi Alanlarım</a>
                 </div>
             </div>
         </div>
@@ -266,6 +277,6 @@
         <p class="mb-0">Sakarya Üniversitesi | Web Teknolojileri Projesi &copy; 2026</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

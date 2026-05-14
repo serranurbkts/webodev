@@ -1,11 +1,20 @@
+<?php
+session_start();
+
+// Eğer kullanıcı giriş yapmamışsa (oturum açılmamışsa)
+if (!isset($_SESSION['user_id'])) {
+    // Kullanıcıyı giriş sayfasına geri fırlat
+    header("Location: giris.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kültürel Dokusu ve Tarihi Mirasıyla Giresun</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+   <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Sayfa Özel Renk Paleti */
         body { background-color: #f4f7f6; color: #333; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -17,14 +26,16 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #212529 !important; border-bottom: 4px solid #2d5a27;">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Kişisel Web Sitesi</a>
+        <a class="navbar-brand fw-bold" href="index.php">Kişisel Web Sitesi</a>
         <div class="collapse navbar-collapse" id="serraNav">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="index.html">Anasayfa</a>
-                <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
-                <a class="nav-link" href="sehrim.html">Şehrim</a>
-                <a class="nav-link active" href="mirasimiz.html">Mirasımız</a>
-                <a class="nav-link" href="iletisim.html">İletişim</a>
+                <a class="nav-link" href="index.php">Anasayfa</a>
+                <a class="nav-link" href="ozgecmis.php">Özgeçmiş</a>
+                <a class="nav-link" href="sehrim.php">Şehrim</a>
+                <a class="nav-link active" href="mirasimiz.php">Mirasımız</a>
+                <a class="nav-link" href="iletisim.php">İletişim</a>
+                <a class="nav-link" href="ilgi alanlarim.php">İlgi Alanlarım</a>
+           
             </div>
         </div>
     </div>
@@ -33,7 +44,7 @@
     <div class="row align-items-end">
         <div class="col-md-9">
             <div style="height: 2px; width: 50px; background-color: #2d5a27; margin-bottom: 15px;"></div>
-            <h1 class="display-4 fw-bold" style="color: #1b263b; letter-spacing: -1.5px;"> GİRESUN'NUN TARİHİ VE SOSYOKÜLTYÜREL YAPISI</h1>
+            <h1 class="display-4 fw-bold" style="color: #1b263b; letter-spacing: -1.5px;"> GİRESUN'NUN TARİHİ VE KÜLTÜREL MİRASI</h1>
          
            <p class="lead text-muted mb-0" style="font-size: 1.1rem; max-width: 600px;"><b>
                 Antik Çağ'dan günümüze Giresun'un tarihi ve demografik-sosyokültürel analizi.
@@ -138,7 +149,7 @@
             </div>
         <p>
     <br><br>
-    <a href="topalosmanaga.html" style="color: #2d5a27; font-weight: bold; text-decoration: underline;">
+    <a href="topalosmanaga.php" style="color: #2d5a27; font-weight: bold; text-decoration: underline;">
         Topal Osman Ağa  hakkında daha detaylı bilgiye ulaşmak için tıklayınız.
     </a> 
 </p>
@@ -180,7 +191,7 @@
         </div>
         <div class="col-md-5 text-center">
             <figure class="figure">
-                <img src="img/gunumuzdegiresun.jpg" class="img-fluid rounded shadow-sm" alt="Antik Giresun Limanı ve Kiraz Bahçeleri Temsili">
+                <img src="img/giresunn.jpg" class="img-fluid rounded shadow-sm" alt="Antik Giresun Limanı ve Kiraz Bahçeleri Temsili">
                 <figcaption class="figure-caption mt-2 text-center">
                     Görsel 5: Günümüzde Giresun.
                 </figcaption>
@@ -188,57 +199,125 @@
         </div>
     </div>
         </section>
-<section class="mt-5 mb-5 p-4 border rounded-3 bg-white shadow-sm">
-    <header class="mb-4">
-        <h2 class="h3 fw-bold" style="color: #2d5a27;">Modern Demografi ve Nüfus Dinamikleri</h2>
-        <div style="height: 3px; width: 100px; background-color: #2d5a27;"></div>
-    </header>
-
-    <div class="row">
-        <div class="col-lg-8">
-            <article class="mb-4">
-                <h4 class="h5 fw-bold text-secondary">Kentsel ve Kırsal Nüfusun Mekânsal Dağılımı</h4>
-                <p class="text-dark">
-                    Giresun’un demografik yapısı incelendiğinde, Cumhuriyet’in ilk yıllarındaki kırsal ağırlıklı dokunun, 2000’li yıllardan itibaren hızla kent merkezlerine kaydığı görülmektedir. Günümüzde kentsel yerleşim oranı <strong>%68,4</strong> seviyesine ulaşırken, kırsal nüfus <strong>%31,6</strong>'ya gerilemiştir. Bu değişim, sadece bir ikametgah değişikliği değil; aynı zamanda şehrin ekonomik tabanının fındık tarımından hizmet, eğitim ve küçük ölçekli sanayi sektörüne evrilmesinin bir sonucudur.
-                </p>
-            </article>
-
-            <article class="mb-4">
-                <h4 class="h5 fw-bold text-secondary">Yaşlanan Nüfusun Sosyo-Ekonomik Nedenleri</h4>
-                <p class="text-dark">
-                    Şehrin demografik geleceğini tehdit eden en belirgin unsur, <strong>hızla yaşlanan nüfus yapısıdır.</strong> Giresun, Türkiye genelinde ortanca yaşı en yüksek iller arasında yer almaktadır. Bu sürecin en temel nedeni, fındık tarımının genç nesil için birincil geçim kaynağı olmaktan çıkması ve sanayi yatırımlarının sınırlı kalmasıyla tetiklenen <strong>genç nüfusun dış göçüdür.</strong> 
-                </p>
-                <p class="text-dark">
-                    Üniversite mezunu gençlerin kariyer hedefleri doğrultusunda metropollere yönelmesi bir "beyin göçü" yaratırken; büyükşehirlerden memleketine dönen emekli nüfus, yaş piramidinin üst kısmını genişleterek yaşlı nüfus oranını yapay olarak artırmaktadır. Bu durum, şehri üretken bir nüfus yapısından "hizmet bekleyen ve emekli ağırlıklı" bir sosyal yapıya doğru itmektedir.
-                </p>
-            </article>
-        </div>
-
-        <div class="col-lg-4 text-center border-start d-flex flex-column justify-content-center">
-            <h6 class="fw-bold text-muted small mb-3 text-uppercase">Nüfus Dağılım Analizi</h6>
-            <figure class="figure">
-                <img src="img/nufusgrafik.jpg" class="img-fluid rounded border p-2 shadow-sm" alt="Nüfus Oranları Grafiği">
-                <figcaption class="figure-caption mt-2 small italic">Giresun 1927-2025 yılları arası nüfus grafiği</figcaption>
-            </figure>
-        </div>
+    </section>
+    
+<section class="container my-5 pt-5 border-top">
+    <div class="mb-4">
+        <h2 class="fw-bold display-5" style="color: var(--koyu); letter-spacing: 1px;">GİRESUN'UN KÜLTÜREL MİRASI</h2>
+        <div style="width: 80px; height: 5px; background-color: var(--ana-yesil); margin-top: 10px;"></div>
     </div>
 
-    <div class="row mt-4 pt-4 border-top">
-        <div class="col-12">
-            <figure class="figure w-100">
-                <img src="img/giresunsahilseridi.jpg" class="img-fluid rounded shadow-sm w-100" style="max-height: 380px; object-fit: cover;" alt="Modern Giresun Panoramas">
-                <center><figcaption class="figure-caption mt-2 small italic">Görsel 6: Giresun sahil şeridi</figcaption></center>
-                <figcaption class="figure-caption mt-3 text-center bg-light p-3 border rounded text-dark">
-                    <strong>"Giresun’un modern sahil şeridi, demografik yaşlanma ve dış göçün yarattığı baskıya karşı şehrin ekonomik direnç merkezidir. Geleneksel fındık tarımının ötesine geçen ticaret hacmi ve genişleyen hizmet sektörü, kentsel dokunun dinamizmini korumasını sağlayan temel yapı taşlarıdır."</strong> 
-                </figcaption>
-            </figure>
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="text-secondary" style="text-align: justify; font-size: 1.2rem; line-height: 1.9;">
+                Giresun'un kültürel kimliği, Karadeniz’in zorlu coğrafyası ile binlerce yıllık yerleşik hayatın kurduğu stratejik bir dengenin ürünüdür. Bu bölümde; şehrin mutfağından haberleşme diline kadar tüm unsurların, bu zorlu coğrafyaya nasıl adapte olduğunu inceleyeceğiz. Aşağıda ,<b> Giresun'un eşsiz kültürünün</b> bir kısmı yer almaktadır.
+            </p>
         </div>
     </div>
 </section>
+   
+     <div class="row align-items-start mb-5 pb-5 border-bottom">
+    
+    <div class="col-md-5 mb-4">
+        <img src="img/giresunmutfagi.jpg" class="img-fluid rounded-3" alt="Giresun Mutfak Kültürü">
+        
+        <p class="mt-2 text-muted small text-center italic">
+            <strong>Görsel 6:</strong> Giresun mutfağının vazgeçilmezi olan Giresun diblesi.
+        </p>
+    </div>
+
+    <div class="col-md-7 ps-md-5">
+        <h3 class="fw-bold text-uppercase mb-3" style="color: var(--ana-yesil);">1. Mutfak Kültürü</h3>
+        <div style="width: 50px; height: 4px; background: var(--ana-yesil); margin-bottom: 20px;"></div>
+        <p class="text-secondary" style="text-align: justify; font-size: 1.1rem; line-height: 1.8;">
+            Giresun mutfağı, Karadeniz’in dik yamaçlarında hayatta kalma sanatının sofraya yansımasıdır. Bu mutfak sadece yemekten ibaret değildir; <strong>"pancar"</strong> (karalahana) ile yapılan onlarca çeşit yemeğin, doğada kendiliğinden yetişen <strong>galdirik, sakarca ve mendek</strong> gibi yabani otların ustalığa dönüşmesidir. Dünyanın en kaliteli fındığının yağıyla lezzetlenen bu coğrafyada; kış hazırlığı olan <strong>kiraz tuzlusu kavurması</strong>, mısır ekmeğinin eşlik ettiği dumanı üstünde hamsi ve fırın kurusu fasulye, yerel halkın "yokluktan varlık yaratma" becerisini kanıtlar.
+        </p>
+    </div>
+
+</div>
+    <div class="row align-items-start mb-5 pb-5 border-bottom flex-column-reverse flex-md-row">
+    
+    <div class="col-md-7 pe-md-5">
+        <h3 class="fw-bold text-uppercase mb-3" style="color: var(--ana-yesil);">2. Giresun'un Yayla Kültürü</h3>
+        <div style="width: 50px; height: 4px; background: var(--ana-yesil); margin-bottom: 20px;"></div>
+        <p class="text-secondary" style="text-align: justify; font-size: 1.1rem; line-height: 1.8;">
+            Giresun’da yaylacılık, sadece serin bir nefes alma molası değil; binlerce yıllık bir gelenektir. Kümbet, Bektaş ve Sis Dağı gibi yaylalarda hayat bulan bu kültür; sahil şeridindeki yoğun rutubetten, dağların en üst rakımlarına yapılan zorunlu bir yolculuktur. Bu döngünün en güzel geleneklerinden olan <strong>"Otçu Göçü"</strong>, mısır tarlalarındaki son çapadan sonra halkın davul-zurna eşliğinde yaylalara doğru yaptığı bir yürüyüş ritüelidir. Yayla evlerindeki ocak başı sohbetleri ve kemençenin hırçın tınısı, dağınık yerleşim tipine sahip bölge insanını birbirine bağlayan en güçlü toplumsal bağlardandır.
+        </p>
+    </div>
+
+    <div class="col-md-5 mb-4">
+        <img src="img/otcugocufestivali.jpg" class="img-fluid rounded-3" alt="Giresun Yayla Kültürü">
+        
+        <p class="mt-2 text-muted small text-center italic">
+            <strong>Görsel 7:</strong> Giresun'un sarp coğrafyasında geleneksel Otçu Göçü festivali.
+        </p>
+    </div>
+
+</div>
+    
+   <div class="row align-items-start mb-5 pb-5 border-bottom">
+    
+    <div class="col-md-5 mb-4">
+        <img src="img/kusdili.jpg" class="img-fluid rounded-3" alt="Kuşköy Islık Dili">
+        
+        <p class="mt-2 text-muted small text-center italic">
+            <strong>Görsel 8:</strong> UNESCO Miras Listesi'nde yer alan ve "Kuş Dili" olarak bilinen Giresun-Çanakçı Islık Dili.
+        </p>
+    </div>
+
+    <div class="col-md-7 ps-md-5">
+        <h3 class="fw-bold text-uppercase mb-3" style="color: var(--ana-yesil);">3. Islık Dili</h3>
+        <div style="width: 50px; height: 4px; background: var(--ana-yesil); margin-bottom: 20px;"></div>
+        <p class="text-secondary" style="text-align: justify; font-size: 1.1rem; line-height: 1.8;">
+            UNESCO Acil Koruma Gerektiren Somut Olmayan Kültürel Miras Listesi'nde yer alan <strong>"Islık Dili"</strong>, Giresun’un Çanakçı bölgesinde geliştirilmiş bir haberleşme dehasıdır. Dik yamaçlar ve derin vadiler arasında sesin yankılanarak kaybolduğu bu coğrafyada, köylülerin parmak ve dil yardımıyla oluşturduğu yüksek frekanslı ses dalgaları, dijital sinyal iletiminden yüzyıllar önce 5 kilometreye kadar veri aktarımı sağlamıştır. Sadece birer işaret değil; kelimelerin, hecelerin ve cümlelerin ıslık tonlarına büründüğü bu yapı, teknolojik imkansızlıkların yaratıcı zekayla nasıl aşıldığının dünyadaki en nadir örneklerinden biridir. Bugün modern haberleşme araçlarına rağmen bir gelenek olarak yaşayan Islık Dili, insanın doğayla kurduğu uyumun en saf yankısıdır.
+        </p>
+    </div>
+
+</div>
+<div class="row align-items-start mb-5 pb-5 border-bottom flex-column-reverse flex-md-row">
+    
+    <div class="col-md-7 pe-md-5">
+        <h3 class="fw-bold text-uppercase mb-3" style="color: var(--ana-yesil);">4. Mayıs Yedisi </h3>
+        <div style="width: 50px; height: 4px; background: var(--ana-yesil); margin-bottom: 20px;"></div>
+        <p class="text-secondary" style="text-align: justify; font-size: 1.1rem; line-height: 1.8;">
+            Miladi takvime göre 20 Mayıs’a tekabül eden <strong>"Mayıs Yedisi"</strong>, Giresun halkının binlerce yıldır denizle kurduğu kadim ve mistik bağın en güçlü sembolüdür. Aksu Deresi’nin Karadeniz’le birleştiği noktada düzenlenen bu ritüeller; bereketin artması, şifa bulma ve kötü enerjilerden arınma gibi duaların somutlaşmış halidir. Geleneğin temel taşlarını oluşturan <strong>sacayaktan geçme</strong>, suya yedi çift bir tek taş atma ve <strong>Giresun Adası</strong> etrafında atılan tur; şehrin tarih öncesi dönemlerden gelen mitolojik mirasının günümüze aktarılan şeklidir. Sadece bir bahar kutlaması değil, aynı zamanda bölge insanının doğanın döngüsüne duyduğu saygının bir ifadesi olan bu şenlikler, Giresun'un toplumsal hafızasını diri tutan en önemli kültürel mirastır.
+        </p>
+    </div>
+
+    <div class="col-md-5 mb-4">
+        <img src="img/mayisyedisi.jpg" class="img-fluid rounded-3" alt="Aksu Mayıs Yedisi Şenlikleri">
+        
+        <p class="mt-2 text-muted small text-center italic">
+            <strong>Görsel 9:</strong> Geleneksel Mayıs Yedisi ritüellerinde sayacaktan geçme etkinliği.
+        </p>
+    </div>
+
+</div>
+    <div class="row align-items-start mb-5 pb-5">
+    
+    <div class="col-md-5 mb-4">
+        <img src="img/findikhasadi.jpg" class="img-fluid rounded-3" alt="Giresun Fındık ve Deniz Kültürü">
+        
+        <p class="mt-2 text-muted small text-center italic">
+            <strong>Görsel 10:</strong> Giresun kimliğinin iki temel unsuru olan Karadeniz ve kıyı şerinde kurutulan Giresun Fındığı.
+        </p>
+    </div>
+
+    <div class="col-md-7 ps-md-5">
+        <h3 class="fw-bold text-uppercase mb-3" style="color: var(--ana-yesil);">5. Giresun'un olmazsa olmazları: Fındık ve Deniz</h3>
+        <div style="width: 50px; height: 4px; background: var(--ana-yesil); margin-bottom: 20px;"></div>
+        <p class="text-secondary" style="text-align: justify; font-size: 1.1rem; line-height: 1.8;">
+            Giresun'un kültürel kimliğinin temelinde, toprağın bereketi ile denizin hırçınlığı arasındaki o sarsılmaz denge yer alır. Dünyanın en kaliteli ve en yüksek yağ oranına sahip <strong>"Giresun Kalite"</strong> fındığının üretimi, bölgede sadece bir tarım faaliyeti değil; sosyal statüyü, yıllık iş gücü takvimini ve mimariyi şekillendiren ana sistemdir. Fındık bahçelerinin gölgesinde şekillenen bu yaşam, kıyı şeridine inildiğinde yerini kadim bir denizcilik mirasına bırakır. Karadeniz’in değişken yapısına uyum sağlayan balıkçılık kültürü, yerel halkın pratik zekasını ve tekne yapımından ağ teknolojilerine kadar uzanan teknik becerisini yansıtır. Bu iki unsur, Giresun insanının hem toprağa hem de denize olan sarsılmaz bağlılığının, şehrin ruhuna işlenmiş somut birer göstergesidir.
+        </p>
+    </div>
+
+</div>
+</section>
+
     <footer class="text-center py-4 bg-dark text-white">
         <p>Sakarya Üniversitesi | Web Teknolojileri Projesi &copy; 2026</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

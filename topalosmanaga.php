@@ -1,11 +1,21 @@
+<?php
+session_start();
+
+// Eğer kullanıcı giriş yapmamışsa (oturum açılmamışsa)
+if (!isset($_SESSION['user_id'])) {
+    // Kullanıcıyı giriş sayfasına geri fırlat
+    header("Location: giris.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topal Osman Ağa | Milli Mücadele</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         :root {
             --ana-yesil: #2d5a27; /* Giresun Yeşili */
@@ -91,13 +101,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Kişisel Web Sitesi</a>
+        <a class="navbar-brand fw-bold" href="index.php">Kişisel Web Sitesi</a>
         <div class="navbar-nav ms-auto">
-            <a class="nav-link" href="index.html">Anasayfa</a>
-            <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
-            <a class="nav-link" href="sehrim.html">Şehrim</a>
-            <a class="nav-link active" href="mirasimiz.html">Mirasımız</a>
-            <a class="nav-link" href="iletisim.html">İletişim</a>
+            <a class="nav-link" href="index.php">Anasayfa</a>
+            <a class="nav-link" href="ozgecmis.php">Özgeçmiş</a>
+            <a class="nav-link" href="sehrim.php">Şehrim</a>
+            <a class="nav-link active" href="mirasimiz.php">Mirasımız</a>
+            <a class="nav-link" href="iletisim.php">İletişim</a>
+            <a class="nav-link" href="ilgialanlarim.php">İlgi Alanlarım</a>
         </div>
     </div>
 </nav>
@@ -130,7 +141,7 @@
     Milli Mücadele'nin bu keskin yürekli kahramanı, bugün ebedi uykusunu en çok sevdiği yerde, Giresun’un kalbinde sürdürmektedir. Osman Ağa'nın naaşı, bizzat Mustafa Kemal Atatürk'ün emirleriyle, şehrin her noktasından görülebilen ve adeta şehri selamlayan <strong>Giresun Kalesi</strong>'ndeki anıt mezarına defnedilmiştir. Kalenin en yüksek noktasında, dalgalanan Türk bayrağının gölgesinde yer alan bu anıt mezar, sadece bir kabir değil; Giresun halkının vatan sevgisinin, bağımsızlık tutkusunun ve vefa borcunun en somut nişanesidir. Şehre gelen her ziyaretçinin ilk durağı olan bu nokta, Karadeniz’in hırçın dalgalarına karşı vatan nöbetini sonsuza dek sürdüren bir kahramanın hatırasını yaşatmaktadır.
 </p>
 
-        <a href="mirasimiz.html" class="btn-back">
+        <a href="mirasimiz.php" class="btn-back">
             <i class="bi bi-arrow-left me-2"></i> Mirasımız Sayfasına Geri Dön
         </a>
     </div>
@@ -142,6 +153,6 @@
          </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

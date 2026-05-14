@@ -1,16 +1,26 @@
+<?php
+session_start();
+
+// Eğer kullanıcı giriş yapmamışsa (oturum açılmamışsa)
+if (!isset($_SESSION['user_id'])) {
+    // Kullanıcıyı giriş sayfasına geri fırlat
+    header("Location: giris.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Özgeçmişim</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         :root {
-            --giresun-yesili: #2d5a27;
-            --koyu-gri: #212529;
-            --acik-gri: #f8f9fa;
+            --ana-yesil: #2d5a27; /* Senin belirlediğin o özel yeşil */
+            --koyu: #212529;      /* Navbar ve footer rengin */
+            --metin: #333333;
         }
 
         body {
@@ -74,17 +84,19 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #212529 !important; border-bottom: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Kişisel Web Sitesi</a>
+            <a class="navbar-brand fw-bold" href="index.php">Kişisel Web Sitesi</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#serraNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="serraNav">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link px-3" href="index.html">Anasayfa</a>
-                    <a class="nav-link active px-3 fw-bold" href="ozgecmis.html">Özgeçmiş</a>
-                    <a class="nav-link px-3" href="sehrim.html">Şehrim</a>
-                    <a class="nav-link px-3" href="mirasimiz.html">Mirasımız</a>
-                    <a class="nav-link px-3" href="iletisim.html">İletişim</a>
+                    <a class="nav-link px-3" href="index.php">Anasayfa</a>
+                    <a class="nav-link active px-3 fw-bold" href="ozgecmis.php">Özgeçmiş</a>
+                    <a class="nav-link px-3" href="sehrim.php">Şehrim</a>
+                    <a class="nav-link px-3" href="mirasimiz.php">Mirasımız</a>
+                    <a class="nav-link px-3" href="iletisim.php">İletişim</a>
+                    <a class="nav-link" href="ilgialanlarim.php">İlgi Alanlarım</a>
+           
                 </div>
             </div>
         </div>
@@ -265,6 +277,6 @@
                  </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
