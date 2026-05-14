@@ -173,6 +173,11 @@ if (!isset($_SESSION['user_id'])) {
                 <h3><strong>Giresun Kalesi</strong></h3>
                 <p>Giresun Kalesi, şehri ikiye bölen dik bir kayalığın tepesinde yer alan ve M.Ö. 2. yüzyılda Pontus Kralı I. Pharnakes tarafından yaptırılan çok eski bir savunma yapısıdır. Kalenin en büyük özelliği, devasa taşların harç kullanılmadan üst üste dizilmesiyle oluşturulan (Kyklopik) surlarıdır. İçerisinde antik çağlardan kalma saray kalıntıları, dehlizler ve sarnıçlar bulunur. Burayı Giresunlular için en özel kılan şey ise Milli Mücadele kahramanı Topal Osman Ağa'nın mezarının burada olmasıdır. Bugün kale, hem tarihi dokusuyla hem de sunduğu eşsiz şehir ve deniz manzarasıyla Giresun'un en popüler gezi noktasıdır.</p>
             </div>
+            <div class="mt-2 text-end">
+    <a href="giresunkalesi.php" class="text-success fw-bold text-decoration-none">
+        Giresun Kalesi hakkında daha detaylı bilgi almak için tıklayın
+    </a>
+</div>
         </div>
 
         <div class="row place-row flex-md-row-reverse">
