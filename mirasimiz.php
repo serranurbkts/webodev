@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// Eğer kullanıcı giriş yapmamışsa (oturum açılmamışsa)
+// Eğer kullanıcı giriş yapmamışsa 
 if (!isset($_SESSION['user_id'])) {
-    // Kullanıcıyı giriş sayfasına geri fırlat
+    // Kullanıcıyı giriş sayfasına geri döndür.
     header("Location: giris.php");
     exit();
 }
@@ -16,7 +16,7 @@ if (!isset($_SESSION['user_id'])) {
     <title>Kültürel Dokusu ve Tarihi Mirasıyla Giresun</title>
    <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Sayfa Özel Renk Paleti */
+        /*  Renk Paleti */
         body { background-color: #f4f7f6; color: #333; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .timeline-section { border-left: 4px solid #2d5a27; padding-left: 20px; margin-bottom: 40px; }
         .period-title { color: #2d5a27; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
@@ -47,7 +47,7 @@ if (!isset($_SESSION['user_id'])) {
             <h1 class="display-4 fw-bold" style="color: #1b263b; letter-spacing: -1.5px;"> GİRESUN'NUN TARİHİ VE KÜLTÜREL MİRASI</h1>
          
            <p class="lead text-muted mb-0" style="font-size: 1.1rem; max-width: 600px;"><b>
-                Antik Çağ'dan günümüze Giresun'un tarihi ve demografik-sosyokültürel analizi.
+                Antik Çağ'dan günümüze Giresun'un tarihi ve kültürel mirasları.
             </b></p>
         </div>
         

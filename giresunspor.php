@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// Eğer kullanıcı giriş yapmamışsa 
+// Eğer kullanıcı giriş yapmamışsa
 if (!isset($_SESSION['user_id'])) {
-    // Kullanıcıyı giriş sayfasına geri döndürür
+    //Kullanıcıyı giriş sayfasına geri döndür
     header("Location: giris.php");
     exit();
 }
@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giresun Kalesi | Şehrimizin Tarihi</title>
+    <title>Giresunspor </title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
@@ -29,12 +29,13 @@ if (!isset($_SESSION['user_id'])) {
             line-height: 1.7;
         }
 
+        /* Navigasyon */
         .navbar { 
             background-color: var(--koyu) !important; 
             border-bottom: 4px solid var(--ana-yesil);
         }
 
-        /* Başlık Bölümü */
+        /* Başlık Alanı */
         .page-header {
             padding: 60px 0;
             background-color: #f8f9fa;
@@ -48,7 +49,7 @@ if (!isset($_SESSION['user_id'])) {
             font-weight: 800;
         }
 
-        /* İçerik Bölümü */
+        /* İçerik Alanı */
         .content-body {
             max-width: 900px;
             margin: 0 auto;
@@ -86,6 +87,7 @@ if (!isset($_SESSION['user_id'])) {
             transform: translateX(-5px);
         }
 
+        /* Footer */
         .footer-full {
             background-color: var(--koyu);
             color: white;
@@ -103,8 +105,8 @@ if (!isset($_SESSION['user_id'])) {
         <div class="navbar-nav ms-auto">
             <a class="nav-link" href="index.php">Anasayfa</a>
             <a class="nav-link" href="ozgecmis.php">Özgeçmiş</a>
-            <a class="nav-link active" href="sehrim.php">Şehrim</a>
-            <a class="nav-link" href="mirasimiz.php">Mirasımız</a>
+            <a class="nav-link" href="sehrim.php">Şehrim</a>
+            <a class="nav-link active" href="giresunspor.php">Giresunspor</a>
             <a class="nav-link" href="iletisim.php">İletişim</a>
             <a class="nav-link" href="ilgialanlarim.php">İlgi Alanlarım</a>
         </div>
@@ -113,43 +115,45 @@ if (!isset($_SESSION['user_id'])) {
 
 <header class="page-header">
     <div class="container">
-        <h1 class="header-title">Giresun'un Zirvesi: Tarihi Giresun Kalesi</h1>
-      </div>
+        <h1 class="header-title">Yeşil-Beyaz Bir Karadeniz Efsanesi: Giresunspor</h1>
+    </div>
 </header>
 
 <main class="container">
     <div class="content-body">
         <p><b>
-            Giresun Kalesi, Karadeniz’in incisi Giresun’un tam kalbinde, şehri ikiye bölen volkanik bir yarımada üzerinde yükselen, M.Ö. 2. yüzyıldan günümüze kadar ulaşmış en görkemli tarihi mirastır. </b> </p>
+            Giresunspor, 1967 yılında kurulan ve o günden bu yana "Çotanaklar" lakabıyla Türk futbolunda Karadeniz fırtınasını temsil eden, şehrin en büyük markası ve ortak paydasıdır.
+        </b></p>
 
         <div class="img-container">
-            <img src="img/kaleburclari.jpg" alt="Giresun Kalesi burçları">
-            <p class="small text-muted mt-2">Giresun şehrinin incisi <b>Tarihi Giresun Kalesi</b></p>
+            <img src="img/logo.jpg" alt="Giresunspor Logosu" style="max-width: 250px;">
+            <p class="small text-muted mt-2">Şehrimizin gururu <b>Giresunspor Kulübü</b></p>
         </div>
 
-        <h3 class="fw-bold mt-5 mb-3" style="color: var(--ana-yesil);">Kalenin Tarihçesi ve Stratejik Önemi</h3>
+        <h3 class="fw-bold mt-5 mb-3" style="color: var(--ana-yesil);">Kuruluş ve İlk Adımlar</h3>
         <p>
-            Antik kaynaklarda "Kerasus" adıyla geçen kale, Pontus Kralı I. Pharnakes tarafından M.Ö. 2. yüzyılda inşa edilmiştir. Şehir merkezine hakim bir tepe üzerinde bulunması, kaleye Karadeniz’in hem batısını hem de doğusunu denetleyebilecek müthiş bir stratejik güç katmıştır. Yüzyıllar boyunca Pontus, Roma, Bizans, Selçuklu ve Osmanlı medeniyetlerine ev sahipliği yapmış olan bu tarihi yapı, her dönemde şehrin savunma merkezi olma özelliğini korumuştur.
+            8 Nisan 1967 tarihinde, Giresun'daki mahalli kulüplerin (Giresunspor, Akıngençlik, Yeşiltepe ve Beşiktaşspor) tek bir çatı altında birleşmesiyle kurulmuştur. Kulübün renkleri olan yeşil ve beyaz, Karadeniz’in doğasını ve saflığını temsil ederken, logosundaki "Çotanak" figürü ise Giresun’un dünya çapındaki simgesi olan fındığı temsil etmektedir. Kurulduğu andan itibaren Karadeniz futbolunun en önemli temsilcilerinden biri olmayı başarmıştır.
         </p>
-        
-        <div class="img-container">
-            <img src="img/kaledenmnzra.jpg" alt="Giresun Kalesi Manzarası" style="max-height: 400px;">
-            <p class="small text-muted mt-2">Kalenin içinden bir manzara</p>
-        </div>
-
-        <h3 class="fw-bold mt-5 mb-3" style="color: var(--ana-yesil);">Mimari Özellikler ve Yaşam Alanları</h3>
-<p>
-    Giresun Kalesi; İç Kale ve Dış Kale olmak üzere iki ana bölümden oluşur. Surlar, büyük ve kaba blok taşlardan örülmüş olup güneybatı yönünden başlayarak tepeyi çevreler. Kale içerisinde Bizans döneminden kalma antik kilise temelleri, devasa sarnıçlar (su depoları) ve gizli geçitler bulunmaktadır. Kalenin en tepesinde, bugün hala dalgalanan şanlı Türk bayrağımız, bu antik yapının milli bir simgeye dönüşmesini sağlamıştır.
-</p>
 
         <div class="img-container">
-            <img src="img/topalosmanmezarı.jpg" alt="Topal Osman Ağa'nın mezarı" style="max-height: 400px;">
-            <p class="small text-muted mt-2">Topal Osman Ağa'nın Giresun Kalesi'nde bulunan mezarı</p>
+            <img src="img/cotanakstadyumu.jpg" alt="Çotanak Spor Kompleksi">
+            <p class="small text-muted mt-2">Evimiz: <b>Çotanak Spor Kompleksi</b></p>
         </div>
-        <h3 class="fw-bold mt-5 mb-3" style="color: var(--ana-yesil);">Manevi Değer: Kahramanın Nöbeti</h3>
-<p>
-    Giresun Kalesi'ni diğer kalelerden ayıran en önemli özellik, sadece askeri bir yapı olması değil, aynı zamanda Milli Mücadele kahramanı <a href="topalosmanaga.php" class="text-success fw-bold text-decoration-none border-bottom border-success"><strong>Topal Osman Ağa</strong></a>'nın anıt mezarına ev sahipliği yapmasıdır. Gazi Mustafa Kemal Atatürk'ün talimatıyla buraya defnedilen Osman Ağa, adeta bugün de kaleden şehri gözetlemeye ve vatan nöbetini sürdürmeye devam etmektedir. Kale, Giresun halkı için hem bir açık hava müzesi hem de bir sadakat abidesidir.
-</p>
+
+        <h3 class="fw-bold mt-5 mb-3" style="color: var(--ana-yesil);">Başarılar ve Süper Lig Serüveni</h3>
+        <p>
+            Giresunspor, Türk futbol tarihinde önemli bir yere sahiptir. Özellikle 1970-1971 sezonundan itibaren Süper Lig'de (o dönemki adıyla 1. Lig) aralıksız 6 sezon mücadele ederek devrin büyük takımlarına karşı elde ettiği galibiyetlerle adından söz ettirmiştir. Uzun bir aradan sonra 2021-2022 sezonunda tekrar Süper Lig'e yükselerek şehrine büyük bir sevinç yaşatan kulübümüz, her zaman mücadelesi ve taraftarının sadakati ile tanınmıştır.
+        </p>
+
+        <div class="img-container">
+            <img src="img/cotanaklartaraftargrubu.jpg" alt="Giresunspor Taraftarı" style="max-height: 400px;">
+            <p class="small text-muted mt-2">Giresunspor'un en büyük gücü: <b>Çotanak Taraftarları</b></p>
+        </div>
+
+        <h3 class="fw-bold mt-5 mb-3" style="color: var(--ana-yesil);">Bir Giresunlu Olarak Giresunspor</h3>
+        <center><p>
+           <b> Giresunspor, bir şehrin sadece futbol takımı değil; tarihinin, doğasının ve insanının tek bir yürekte buluştuğu ortak paydasıdır.</b>
+        </p></center>
 
         <a href="sehrim.php" class="btn-back">
             <i class="bi bi-arrow-left me-2"></i> Şehrim Sayfasına Geri Dön

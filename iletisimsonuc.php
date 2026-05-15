@@ -1,67 +1,75 @@
 <?php
 session_start();
 
-// Güvenlik: Eğer bu sayfaya form gönderilmeden direkt girilirse geri at
+if (!isset($_SESSION['user_id'])) {
+    header("Location: giris.php");
+    exit();
+}
+//Sadece form verilerini kabul eder
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     header("Location: iletisim.php");
     exit();
 }
 
-// Formdan gelen verileri değişkenlere atayalım
-// htmlspecialchars kullanarak güvenlik (XSS) önlemi alıyoruz
-$ad = htmlspecialchars($_POST['ad'] ?? '');
-$soyad = htmlspecialchars($_POST['soyad'] ?? '');
-$email = htmlspecialchars($_POST['email'] ?? '');
-$mesaj = htmlspecialchars($_POST['mesaj'] ?? '');
+// Veri Alma
+// htmlspecialchars(): XSS saldırılarını önlemek için karakterleri zararsız hale getirir.
+//Veri gelmediyse "Belirtilmedi" yazarak hatayı önler.
+$adSoyad  = !empty($_POST['adSoyad']) ? htmlspecialchars($_POST['adSoyad']) : "Belirtilmedi";
+$eposta   = !empty($_POST['eposta'])  ? htmlspecialchars($_POST['eposta'])  : "Belirtilmedi";
+$telefon  = !empty($_POST['telefon']) ? htmlspecialchars($_POST['telefon']) : "Belirtilmedi";
+$cinsiyet = isset($_POST['cinsiyet']) ? htmlspecialchars($_POST['cinsiyet']) : "Belirtilmedi";
+$mesaj    = (!empty($_POST['mesaj'])) ? htmlspecialchars($_POST['mesaj'])   : "Mesaj belirtilmedi.";
+// Checkbox verisi varsa "Onaylandı" yoksa "Onaylanmadı" değişkenini atar.
+$kvkk     = isset($_POST['kvkkOnay']) ? "Onaylandı" : "Onaylanmadı";
 ?>
 
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>İletişim Sonucu</title>
-   <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Gönderim Özeti</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        body { background-color: #f8f9fa; }
-        .result-card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-top: 50px;
-            border-top: 5px solid #2d5a27;
-        }
+        :root { --ana-yesil: #2d5a27; --koyu: #212529; }
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', sans-serif; }
+        .navbar { background-color: var(--koyu) !important; border-bottom: 4px solid var(--ana-yesil); }
+        .card-result { border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: none; overflow: hidden; }
+        .header-custom { background: var(--ana-yesil); color: white; padding: 30px; text-align: center; }
+        .table th { background: #f8f9fa; width: 30%; }
+        .btn-back { border-radius: 50px; background: var(--ana-yesil); color: white; padding: 10px 30px; text-decoration: none; }
     </style>
 </head>
 <body>
 
-<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container"><a class="navbar-brand fw-bold" href="index.php">Kişisel Web Sitesi</a></div>
+</nav>
+
+<div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-md-8 result-card">
-            <h2 class="text-success fw-bold mb-4 text-center">Mesajınız Alındı!</h2>
-            <p class="lead text-center text-muted mb-5">Formdan gönderdiğiniz bilgiler aşağıdadır:</p>
-
-            <table class="table table-striped table-bordered">
-                <tr>
-                    <th width="30%">Adınız:</th>
-                    <td><?php echo $ad; ?></td>
-                </tr>
-                <tr>
-                    <th>Soyadınız:</th>
-                    <td><?php echo $soyad; ?></td>
-                </tr>
-                <tr>
-                    <th>E-Posta:</th>
-                    <td><?php echo $email; ?></td>
-                </tr>
-                <tr>
-                    <th>Mesajınız:</th>
-                    <td><?php echo nl2br($mesaj); ?></td>
-                </tr>
-            </table>
-
-            <div class="text-center mt-5">
-                <a href="index.php" class="btn btn-dark px-5 py-2 rounded-pill">Anasayfaya Dön</a>
+        <div class="col-lg-8">
+            <div class="card card-result bg-white">
+                <div class="header-custom">
+                    <i class="bi bi-check-circle-fill display-4 mb-2"></i>
+                    <h2>Form Başarıyla Kaydedildi</h2>
+                </div>
+                <div class="card-body p-4">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr><th>Ad Soyad</th><td><strong><?php echo $adSoyad; ?></strong></td></tr>
+                            <tr><th>E-Posta</th><td><?php echo $eposta; ?></td></tr>
+                            <tr><th>Telefon</th><td><?php echo $telefon; ?></td></tr>
+                            <tr><th>Cinsiyet</th><td><?php echo $cinsiyet; ?></td></tr>
+                            <tr><th>Mesaj</th><td style="white-space: pre-wrap;"><?php echo $mesaj; ?></td></tr>
+                            //pre-wrap metnin karışmasını önler
+                            <tr><th>KVKK</th><td><?php echo $kvkk; ?></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center mt-4">
+                        <a href="iletisim.php" class="btn-back">Forma Geri Dön</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

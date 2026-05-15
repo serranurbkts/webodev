@@ -18,8 +18,8 @@ if (!isset($_SESSION['user_id'])) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         :root {
-            --ana-yesil: #2d5a27; /* Senin belirlediğin o özel yeşil */
-            --koyu: #212529;      /* Navbar ve footer rengin */
+            --ana-yesil: #2d5a27; 
+            --koyu: #212529;      /* Navbar ve footer rengi */
             --metin: #333333;
         }
 
@@ -111,7 +111,7 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="col-lg-9 ps-lg-5">
                     <h1 class="display-3 fw-bold mb-1">Serra Nur Bektaş</h1>
                     <h4 class="mb-4" style="color: var(--giresun-yesili);">Bilgisayar Mühendisliği Öğrencisi</h4>
-                    <p class="lead text-muted mb-4">Sakarya Üniversitesi'nde bilgisayar mühendisliği 1. sınıf öğrencisiyim.</p>
+                    <p class="lead text-muted mb-4">2007 yılında İstanbul'da doğdum. Şu an Sakarya Üniversitesi'nde bilgisayar mühendisliği 1. sınıf öğrencisiyim.</p>
                 </div>
             </div>
         </div>

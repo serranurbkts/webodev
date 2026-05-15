@@ -1,9 +1,13 @@
 <?php
 session_start();
+/**
+ * session_start() ile oturum hatırlatılır. 
+ * Güvenlik amacıyla, sisteme giriş yapmamış kullanıcıların bu özeti görmesi engellenir.
+ */
 
-// Eğer kullanıcı giriş yapmamışsa (oturum açılmamışsa)
+// Eğer kullanıcı giriş yapmamışsa (giris.php)
 if (!isset($_SESSION['user_id'])) {
-    // Kullanıcıyı giriş sayfasına geri fırlat
+    // Kullanıcıyı giriş sayfasına geri gönder
     header("Location: giris.php");
     exit();
 }
@@ -18,7 +22,7 @@ if (!isset($_SESSION['user_id'])) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 <style>
         :root {
-            --ana-yesil: #2d5a27; /* Giresun Yeşili */
+            --ana-yesil: #2d5a27; 
             --koyu: #212529;
             --arka-plan: #fdfdfd;
         }
@@ -29,7 +33,7 @@ if (!isset($_SESSION['user_id'])) {
             color: var(--koyu);
         }
 
-        /* Navigasyon - Diğer sayfalarla ortak */
+        /* Navigasyon - Diğer sayfalarla ortak yapılacaktır*/
         .navbar { 
             background-color: var(--koyu) !important; 
             border-bottom: 4px solid var(--ana-yesil);
@@ -168,7 +172,7 @@ if (!isset($_SESSION['user_id'])) {
             </a>
         </div>
           <center><div class="col-md-4">
-            <a href="ilgi alanlarim.php" class="nav-link-card">
+            <a href="ilgialanlarim.php" class="nav-link-card">
                 <div class="cv-card">
                     <i class="bi bi-map fs-1 text-success mb-3"></i>
                     <h4 class="fw-bold">İlgi Alanlarım</h4>

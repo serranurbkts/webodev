@@ -6,32 +6,36 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// OMDb API Ayarları
-$apiKey = "679c6762"; 
-$filmIsmi = "Human"; 
-$url = "http://www.omdbapi.com/?t=" . urlencode($filmIsmi) . "&apikey=$apiKey";
+// Varsayılan arama terimi (Sayfa ilk açıldığında Human belgeselini getirir)
+$searchQuery = "human";
 
-// Daha güvenli veri çekme yöntemi: cURL
+// Eğer arama kutusuna bir şey yazıldıysa onu al
+if (isset($_POST['filmAra']) && !empty($_POST['filmAra'])) {
+    $searchQuery = $_POST['filmAra'];
+}
+
+// TVmaze API URL
+$url = "https://api.tvmaze.com/singlesearch/shows?q=" . urlencode($searchQuery);
+
+// Veriyi çekiyoruz (cURL ile )
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 5); // 5 saniye bekle, gelmezse vazgeç
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 $response = curl_exec($ch);
 curl_close($ch);
 
 $data = json_decode($response);
 
-// API YEDEĞİ (Eğer internet yoksa veya API anahtarı çalışmazsa hoca boş sayfa görmesin)
-if (!$data || $data->Response == "False") {
+//Eğer API cevap vermezse veya sonuç bulunamazsa
+if (!$data || !isset($data->name)) {
     $data = (object) [
-        'Response' => 'True',
-        'Title' => 'HUMAN',
-        'Year' => '2015',
-        'Genre' => 'Belgesel',
-        'Plot' => 'Dünya genelinde 2000 den fazla insanla yapılan röportajlar aracılığıyla insan olmanın ne anlama geldiğine dair derin bir bakış sunan etkileyici bir belgesel.',
-        'imdbRating' => '8.6',
-        'Director' => 'Yann Arthus-Bertrand',
-        'Poster' => 'img/human.jpg' // Yerel resmin yolu
+        'name' => 'Sonuç Bulunamadı',
+        'genres' => ['-'],
+        'summary' => '<p>Aradığınız isimde bir yapım bulunamadı. Lütfen tekrar deneyiniz.</p>',
+        'rating' => (object) ['average' => '-'],
+        'image' => (object) ['original' => 'img/human.jpg']
     ];
 }
 ?>
@@ -40,11 +44,10 @@ if (!$data || $data->Response == "False") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İlgi Alanlarım </title>
-   <link href="css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <title>İlgi Alanlarım</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        /* DİĞER SAYFALARINDAKİ AYNI CSS BLOĞU */
         :root {
             --ana-yesil: #2d5a27; 
             --koyu: #212529;
@@ -70,7 +73,6 @@ if (!$data || $data->Response == "False") {
             margin-bottom: 40px;
         }
 
-        /* Senin yazdığın metni diğer sayfalarındaki "Özet" veya "Hakkımda" kısımları gibi hizaladım */
         .manifesto-box {
             border-left: 5px solid var(--ana-yesil);
             padding: 20px 30px;
@@ -96,6 +98,13 @@ if (!$data || $data->Response == "False") {
             font-size: 1.1rem;
             line-height: 1.8;
             text-align: justify;
+        }
+
+        .search-container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #eee;
         }
 
         footer {
@@ -125,8 +134,8 @@ if (!$data || $data->Response == "False") {
 
 <div class="header-bg text-center">
     <div class="container">
-        <h1 class="display-5 fw-bold">İLGİ ALANLARIM</h1>
-        <p class="lead text-muted">Benim Perspektifimden</p>
+        <h1 class="display-5 fw-bold text-uppercase">İLGİ ALANLARIM</h1>
+        <p class="lead text-muted">Benim Perspektifimden Dünyanın Görünmez Bağları</p>
     </div>
 </div>
 
@@ -136,6 +145,7 @@ if (!$data || $data->Response == "False") {
             
             <div class="manifesto-box">
                 <p class="content-text mb-0 italic">
+                    <?php // Senin manifesto metnin ?>
                     Dünya, birbirine görünmez ağlarla bağlı devasa bir sistemdir. Benim ise bu görünmez ağları keşfetmem biraz zaman aldı. Her seferinde birbirinden çok farklı, alakasız alanlara ilgi duyduğuma inanıyordum. Ancak artık birbirinden farklı kulvarlarda denilebilecek ilgi alanlarımın arasındaki görünmez bağları keşfettim. 
                     <br><br>
                     İnsan zihninin karmaşıklığı ile bilgisayar sistemlerinin mantığı arasındaki benzerliği, uluslararası ilişkilerdeki dengelerin teknolojik gelişmeler ile dünya siyasetinde dengeleri değiştirebileceğini artık biliyorum. Bu görünmez bağları görmek için artık daha fazla çaba sarf ediyorum. Belki de bunun bir sebebi dünyanın karmaşık yüzünü anlamlandırma çabamdandır. 
@@ -158,49 +168,51 @@ if (!$data || $data->Response == "False") {
             <p class="content-text">
                 Farklı kültürlerin, dinlerin ve tarihsel süreçlerin oluşturduğu o devasa sistemi çözmeye çalışmak; dünyanın işleyiş kodlarını okumak gibi. Bu merak, ürettiğim çözümlere global bir perspektif kazandırıyor.
             </p>
-           <hr class="my-5">
-<h3 class="interest-title text-success"><i class="bi bi-film"></i> Benden Bir Kesit: İlgi alanlarımı bütünüyle yansıtan bir belgesel</h3>
-<p class="content-text mb-4">
-    Sinema, insan zihnini ve toplumsal bağları anlamamda bana yardımcı olan en güçlü araçlardan biridir. Benim için ise dünyayı ve insanı anlamlandırma çabamda yoluma çıkan en etkileyici rehberlerden biri Human belgeseli oldu. Yönetmen Yann Arthus-Bertrand'ın bu çalışması, bana dünyanın sadece rakamlardan veya haritalardan ibaret olmadığını; aslında milyarlarca farklı hikayenin birleştiği devasa bir kalp atışı olduğunu gösterdi.
-    60 farklı ülkede, 2000'den fazla insanın en saf haliyle kameraya bakıp; aşkı, acıyı, adaleti ve mutluluğu kendi dillerinde anlatması, aslında özümüzde ne kadar 'bir' olduğumuzu kanıtlıyor. Bir mühendis adayı olarak sistemleri çözmeye çalışırken, bu belgesel bana en karmaşık ve en kusursuz sistemin 'insan ruhu' olduğunu hatırlatıyor. Farklı kültürlerin ve hayatların o görünmez ağlarla birbirine nasıl bağlandığını görmek, benim perspektifimi global bir boyuta taşıyor. Benim için bu belgesel, sadece izlenen bir görüntü değil; insanlık ailesine yazılmış sessiz ve derin bir mektup niteliğinde.
-</p>
 
-<?php if(isset($data) && $data->Response == "True"): ?>
-    <div class="card mb-5 shadow-sm border-0 bg-light" style="min-height: 300px;">
-    <div class="row g-0">
-        <div class="col-md-3 d-flex align-items-center justify-content-center bg-secondary-subtle">
-            <?php 
-            // Resim kontrolü: API'den gelmezse senin klasöründeki resmi kullan
-            $posterUrl = (isset($data->Poster) && $data->Poster != "N/A") ? $data->Poster : "img/human.jpg";
-            ?>
-            <img src="<?php echo $posterUrl; ?>" class="img-fluid rounded-start w-100" alt="Film Afişi" onerror="this.src='img/human.jpg';">
-        </div>
-        <div class="col-md-9">
-            <div class="card-body">
-                <h4 class="card-title fw-bold text-dark">
-                    <?php echo isset($data->Title) ? $data->Title : "HUMAN"; ?>
-                </h4>
-                <h6 class="card-subtitle mb-2 text-muted">
-                    <?php echo isset($data->Year) ? $data->Year : "2015"; ?> | <?php echo isset($data->Genre) ? $data->Genre : "Belgesel"; ?>
-                </h6>
-                <p class="card-text mt-3">
-                    <?php echo isset($data->Plot) ? $data->Plot : "İnsanlık hallerini ve hayatın anlamını sorgulayan eşsiz bir yapım."; ?>
-                </p>
-                <div class="d-flex align-items-center mt-4">
-                    <span class="badge bg-warning text-dark me-2">IMDB: <?php echo isset($data->imdbRating) ? $data->imdbRating : "8.6"; ?></span>
-                    <span class="text-muted small italic">Yönetmen: <?php echo isset($data->Director) ? $data->Director : "Yann Arthus-Bertrand"; ?></span>
+            <hr class="my-5">
+
+            <h3 class="interest-title text-success"><i class="bi bi-search"></i> Belgesel ve Sinema Keşif Alanı</h3>
+            <p class="content-text mb-4">
+                Sinema ve belgeseller, dünyayı anlamlandırma çabamda en etkileyici rehberlerimden ve yapmayı çok sevdiğim aktivitelerimden biri. Aşağıdaki arama motoru ile ilgi alanlarınıza giren yapımları keşfedebilirsiniz.
+                     </p>
+
+            <div class="search-container mb-5 shadow-sm">
+                <form method="POST" class="input-group">
+                    <input type="text" name="filmAra" class="form-control form-control-lg" placeholder="Belgesel/Dizi adı yazın... (Örn: Human, Cosmos)" required>
+                    <button class="btn btn-success px-4" type="submit">
+                        <i class="bi bi-search"></i> Keşfet
+                    </button>
+                </form>
+            </div>
+
+            <div class="card mb-5 shadow-sm border-0 bg-light overflow-hidden" style="border-radius: 15px;">
+                <div class="row g-0">
+                    <div class="col-md-3">
+
+                        <?php 
+                        $resim = (isset($data->image->original)) ? $data->image->original : "img/human.jpg";
+                        ?>
+                        <img src="<?php echo $resim; ?>" class="img-fluid h-100" alt="Afiş" style="object-fit: cover;" onerror="this.src='img/human.jpg';">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body p-4">
+                            <h4 class="card-title fw-bold text-dark"><?php echo $data->name; ?></h4>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <?php echo is_array($data->genres) ? implode(', ', $data->genres) : $data->genres; ?> | TVmaze API Verisi
+                            </h6>
+                            <div class="card-text mt-3 text-secondary">
+                                <?php echo $data->summary; ?>
+                            </div>
+                            <div class="d-flex align-items-center mt-4">
+                                <span class="badge bg-warning text-dark me-2">Puan: <?php echo $data->rating->average ?? 'N/A'; ?> / 10</span>
+                                <span class="text-muted small italic">Sistem Durumu: Aktif Sorgu</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
-    </div>
-</div>
-<?php else: ?>
-    <div class="alert alert-success border-0 shadow-sm text-center p-4">
-        <div class="spinner-border text-success mb-3" role="status"></div>
-        <p class="mb-0"><strong>Film verileri OMDb API üzerinden yükleniyor...</strong></p>
-        <small class="text-muted">API anahtarı aktivasyon süreci devam ediyor olabilir.</small>
-    </div>
-<?php endif; ?>
     </div>
 </main>
 

@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         :root {
-            --ana-yesil: #2d5a27; /* Giresun Yeşili */
+            --ana-yesil: #2d5a27; 
             --koyu: #212529;
         }
 
@@ -29,13 +29,12 @@ if (!isset($_SESSION['user_id'])) {
             line-height: 1.7;
         }
 
-        /* Navigasyon - Diğer sayfalarla %100 uyumlu */
         .navbar { 
             background-color: var(--koyu) !important; 
             border-bottom: 4px solid var(--ana-yesil);
         }
 
-        /* Başlık Alanı */
+        /* Başlık Bölümü */
         .page-header {
             padding: 60px 0;
             background-color: #f8f9fa;
@@ -67,7 +66,7 @@ if (!isset($_SESSION['user_id'])) {
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        /* Dönüş Butonu */
+        /* Dönüş Butonu(Mirasımıza Geri Döner) */
         .btn-back {
             display: inline-flex;
             align-items: center;
@@ -87,7 +86,6 @@ if (!isset($_SESSION['user_id'])) {
             transform: translateX(-5px);
         }
 
-        /* Footer */
         .footer-full {
             background-color: var(--koyu);
             color: white;

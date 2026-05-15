@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// Eğer kullanıcı giriş yapmamışsa (oturum açılmamışsa)
+// Eğer kullanıcı giriş yapmamışsa 
 if (!isset($_SESSION['user_id'])) {
-    // Kullanıcıyı giriş sayfasına geri fırlat
+    // Kullanıcıyı giriş sayfasına geri döndür
     header("Location: giris.php");
     exit();
 }
@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
    <style>
         :root {
-            --ana-yesil: #2d5a27; /* Mirasımız sayfasıyla aynı koyu yeşil */
+            --ana-yesil: #2d5a27; 
             --yazi: #3d405b;
             --arka-plan: #f8f9fa;
         }
@@ -94,6 +94,20 @@ if (!isset($_SESSION['user_id'])) {
             padding: 40px 0;
             border-top: 5px solid var(--ana-yesil);
         }
+        /* Slider fotoğraflarını ilk fotoğrafın boyutuna getirir */
+.slider-img {
+    width: 100%;
+    height: 500px; /* Tüm fotoğraflar artık bu yükseklikte sabitlenecek */
+    object-fit: cover; /* Fotoğraflar sünmez, şekli bozulmaz, kutuya tam oturur */
+    object-position: center; /* Fotoğrafın tam merkezini gösterir */
+}
+
+/* Telefonlarda slider çok uzun durmasın diye yükseklik ayarı */
+@media (max-width: 768px) {
+    .slider-img {
+        height: 300px;
+    }
+}
     </style>
 </head>
 <body>
@@ -113,29 +127,68 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
     </nav>
-    <header class="hero-header py-5" style="background-color: #f8f9fa; border-bottom: 5px solid #2d5a27; overflow: hidden;">
-    <div class="container">
-        <div class="row align-items-center">
-            
-            <div class="col-lg-5 pe-lg-5">
-                <div class="header-accent mb-3" style="height: 5px; width: 70px; background-color: #2d5a27;"></div>
-                <h1 class="display-4 fw-bold mb-4" style="color: #212529; line-height: 1.2;">
-                    GİRESUN'NU KEŞFEDİN
-                </h1>
-                
-                <p class="mb-4" style="font-size: 1.25rem; line-height: 1.8; color: #444; font-weight: 400;">
-                    Hırçın dalgaların fısıldadığı hikayelerden, sisli yaylaların sessizliğine... Giresun’u sadece bir şehir değil, yaşanması gereken bir yolculuk olarak yeniden keşfedin
-                </p>
-                
-            </div>
 
-            <div class="col-lg-7">
-                <div class="header-img-container">
-                    <img src="img/gunumuzdegiresun.jpg" alt="Giresun" 
-                         class="img-fluid shadow-lg w-100" 
-                         style="border-radius: 10px; border: 15px solid #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important; min-height: 450px; object-fit: cover;">
+<section class="container my-5">
+    <h1 class="text-center mb-4"><strong>GİRESUN'U KEŞFETMEYE HAZIR OLUN</strong></h1><br>
+
+    <div id="giresunSlider" class="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#giresunSlider" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#giresunSlider" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#giresunSlider" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#giresunSlider" data-bs-slide-to="3"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <a href="sehrim.php">
+                    <img src="img/giresun.jpg" class="d-block w-100 slider-img" alt="Gezilecek Yerler">
+                </a>
+                <div class="carousel-caption">
+                    <h5 class="slider-title">Gezilecek Yerler</h5>
                 </div>
             </div>
+
+            <div class="carousel-item">
+                <a href="mirasimiz.php">
+                    <img src="img/giresunfindik.jpg" class="d-block w-100 slider-img" alt="Giresun Fındığı">
+                </a>
+                <div class="carousel-caption">
+                    <h5 class="slider-title">Giresun Fındığı</h5>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <a href="mirasimiz.php">
+                    <img src="img/kusdili.jpg" class="d-block w-100 slider-img" alt="Kuş Dili">
+                </a>
+                <div class="carousel-caption">
+                    <h5 class="slider-title">Kuş Dili</h5>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <a href="giresunspor.php"> <img src="img/giresunspor.jpg" class="d-block w-100 slider-img" alt="Giresunspor">
+                </a>
+                <div class="carousel-caption">
+                    <h5 class="slider-title">Giresunspor</h5>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#giresunSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#giresunSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+    </div>
+</section>
 
         </div>
     </div>

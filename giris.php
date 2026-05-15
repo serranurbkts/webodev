@@ -1,11 +1,14 @@
 <?php
 session_start();
 
+// Eğer giriş yapılmışsa, tekrar giriş sayfasını görmeden anasayfaya gidisin.
 if(isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
 }
-
+/* GİRİŞ KONTROLÜ
+ * Form 'Giriş Yap' butonuna basılarak POST edildiğinde burası çalışır.
+ */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -35,12 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giriş Yap | Serra Nur Bektaş</title>
+    <title>Giriş Yap </title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <style>
         :root {
-            --ana-yesil: #2d5a27; /* Giresun Yeşili */
+            --ana-yesil: #2d5a27;
             --koyu: #212529;
             --arka-plan: #f8f9fa;
         }
