@@ -62,7 +62,6 @@ $kvkk     = isset($_POST['kvkkOnay']) ? "Onaylandı" : "Onaylanmadı";
                             <tr><th>Telefon</th><td><?php echo $telefon; ?></td></tr>
                             <tr><th>Cinsiyet</th><td><?php echo $cinsiyet; ?></td></tr>
                             <tr><th>Mesaj</th><td style="white-space: pre-wrap;"><?php echo $mesaj; ?></td></tr>
-                            //pre-wrap metnin karışmasını önler
                             <tr><th>KVKK</th><td><?php echo $kvkk; ?></td></tr>
                         </tbody>
                     </table>
