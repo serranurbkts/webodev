@@ -1,0 +1,102 @@
+/* 1. DEĞİŞKENLER VE SIFIRLAMA */
+:root {
+    --ana-yesil: #2d5a27; 
+    --koyu: #212529;
+    --arka-plan: #fdfdfd;
+    --beyaz: #ffffff;
+    --gri-border: #eeeeee;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out; /* Genel geçiş yumuşatması */
+}
+
+body {
+    background-color: var(--arka-plan);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--koyu);
+    line-height: 1.6;
+}
+
+/* 2. NAVIGASYON (NAVBAR) */
+.navbar { 
+    background-color: var(--koyu) !important; 
+    border-bottom: 4px solid var(--ana-yesil);
+}
+
+/* 3. SAYFA BAŞLIKLARI VE HEADER */
+.intro-header {
+    background-color: var(--beyaz);
+    border-bottom: 1px solid var(--gri-border);
+    padding: 80px 0;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    border-left: 5px solid var(--ana-yesil);
+    padding-left: 15px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* 4. KART YAPILARI (CV & API KARTLARI) */
+.cv-card {
+    background: var(--beyaz);
+    border: 1px solid var(--gri-border);
+    border-radius: 12px;
+    padding: 30px;
+    height: 100%;
+}
+
+.nav-link-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.nav-link-card:hover .cv-card {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    border-color: var(--ana-yesil);
+}
+
+/* 5. ÖZEL BUTONLAR */
+.btn-giresun {
+    background-color: var(--ana-yesil);
+    color: var(--beyaz);
+    border-radius: 50px;
+    padding: 10px 30px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-giresun:hover {
+    background-color: var(--koyu);
+    color: var(--beyaz);
+}
+
+/* 6. FOOTER (EKRANI TAM KAPLAYAN BANT) */
+.footer-full {
+    background-color: var(--koyu);
+    color: var(--beyaz);
+    border-top: 4px solid var(--ana-yesil);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+/* 7. EKSTRA DOKUNUŞ: RESPONSIVE RESİM AYARI */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}

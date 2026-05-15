@@ -190,7 +190,7 @@ if (!$data || !isset($data->name)) {
                     <div class="col-md-3">
 
                         <?php 
-                        $resim = (isset($data->image->original)) ? $data->image->original : "img/human.jpg";
+                        $resim = (isset($data->image->original)) ? $data->image->original : "img/humanbelgeseli.jpg";
                         ?>
                         <img src="<?php echo $resim; ?>" class="img-fluid h-100" alt="Afiş" style="object-fit: cover;" onerror="this.src='img/human.jpg';">
                     </div>

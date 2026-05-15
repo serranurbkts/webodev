@@ -11,89 +11,13 @@ if (!isset($_SESSION['user_id'])) {
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giresun Kalesi | Şehrimizin Tarihi</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
-        :root {
-            --ana-yesil: #2d5a27; 
-            --koyu: #212529;
-        }
-
-        body {
-            background-color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--koyu);
-            line-height: 1.7;
-        }
-
-        .navbar { 
-            background-color: var(--koyu) !important; 
-            border-bottom: 4px solid var(--ana-yesil);
-        }
-
-        /* Başlık Bölümü */
-        .page-header {
-            padding: 60px 0;
-            background-color: #f8f9fa;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 40px;
-        }
-
-        .header-title {
-            border-left: 6px solid var(--ana-yesil);
-            padding-left: 20px;
-            font-weight: 800;
-        }
-
-        /* İçerik Bölümü */
-        .content-body {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .img-container {
-            margin: 30px 0;
-            text-align: center;
-        }
-
-        .img-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Dönüş Butonu */
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--ana-yesil);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            margin-top: 40px;
-        }
-
-        .btn-back:hover {
-            background-color: var(--koyu);
-            color: white;
-            transform: translateX(-5px);
-        }
-
-        .footer-full {
-            background-color: var(--koyu);
-            color: white;
-            border-top: 4px solid var(--ana-yesil);
-            padding: 30px 0;
-            margin-top: 80px;
-        }
-    </style>
+   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
